@@ -5,7 +5,8 @@ import { PrimeNgModule } from './modules/prime-ng.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     PrimeNgModule

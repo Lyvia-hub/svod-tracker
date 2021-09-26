@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PrimeNgModule } from './modules/prime-ng.module';
 
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    PrimeNgModule
+    ButtonModule
   ],
   exports: [
-    CommonModule,
-    PrimeNgModule
+    ButtonModule
   ]
 })
-export class SharedModule { }
+export class PrimeNgModule { }

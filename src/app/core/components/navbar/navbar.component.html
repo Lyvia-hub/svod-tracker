@@ -6,7 +6,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
 
     <!-- SVOD Tracker -->
-    <a class="navbar-brand" routerLink="home">
+    <a class="navbar-brand" routerLink="home" (click)="navigate(homePath)">
       <!-- <img class="logoST" src="../../../../assets/img/" alt="logo SVOD Tracker"> -->
       <span class="svod-tracker">SVOD Tracker</span>
     </a>
@@ -20,31 +20,31 @@
       <ul class="navbar-nav">
 
         <!-- Accueil -->
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="">Accueil</a>
+        <li class="nav-item" [class.active]=isActive(homePath)>
+          <a class="nav-link" (click)="navigate(homePath)">Accueil</a>
         </li>
 
         <!-- Netflix -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="">Netflix</a>
+          <a class="nav-link">Netflix</a>
         </li>
 
         <!-- Amazon -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="">Amazon</a>
+          <a class="nav-link">Amazon</a>
         </li>
 
         <!-- Disney + -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="">Disney +</a>
+          <a class="nav-link">Disney +</a>
         </li>
 
         <!-- User -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">Utilisateur</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="svod-netflix">S'inscrire</a></li>
-            <li><a class="dropdown-item" routerLink="svod-ocs">Se connecter</a></li>
+            <li [class.active]=isActive(signinPath)><a class="dropdown-item" (click)=navigate(signinPath) >S'inscrire</a></li>
+            <li [class.active]="isActive(loginPath)"><a class="dropdown-item" (click)=navigate(loginPath)>Se connecter</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" routerLink="svod-amazon-video">Logout</a></li>
           </ul>

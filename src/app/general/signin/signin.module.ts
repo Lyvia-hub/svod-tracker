@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SigninRoutingModule } from './signin-routing.module';
 import { SigninComponent } from './signin/signin.component';
 
 
@@ -9,7 +10,8 @@ import { SigninComponent } from './signin/signin.component';
     SigninComponent
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    SigninRoutingModule
   ]
 })
 export class SigninModule { }

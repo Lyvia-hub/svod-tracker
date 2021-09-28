@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { MenuItem } from 'primeng/api';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,61 +8,19 @@ import { MenuItem } from 'primeng/api';
 })
 export class NavbarComponent implements OnInit {
 
-  items: MenuItem[] = [
-    {
-      label: "",
-      icon: ""
-    }
-  ];
+  homePath: string = 'home';
+  loginPath: string = 'login';
+  signinPath: string = 'signin';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-    this.items = [
-      {
-        label: 'SVOD Tracker',
-        icon: ''
-      },
-      {
-        label: 'SVOD Tracker',
-        icon: ''
-      },
-      {
-        label: 'Accueil',
-        icon: 'pi pi-fw pi-home'
-      },
-      {
-        label: 'Netflix',
-        icon: 'pi pi-fw pi-video'
-      },
-      {
-        label: 'Amazon',
-        icon: 'pi pi-fw pi-amazon',
-      },
-      {
-        label: 'Disney +',
-        icon: 'pi pi-fw pi-video',
-      },
-      {
-        label: 'Users',
-        icon: 'pi pi-fw pi-user',
-        items: [
-          {
-            label: 'Signin',
-            icon: 'pi pi-fw pi-user-plus',
-          },
-          {
-            label: 'Login',
-            icon: 'pi pi-fw pi-user-edit',
-          },
-          {
-            label: 'Logout',
-            icon: 'pi pi-fw pi-power-off',
-          }
-        ]
-      }
-    ];
+  public isActive(page: string): boolean {
+    return this.router.isActive(page, true);
   }
 
+  public navigate(page: string): void {
+    this.router.navigate([page]);
+  }
 }

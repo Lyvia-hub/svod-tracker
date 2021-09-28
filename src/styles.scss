@@ -1,6 +1,17 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
 /*Font Family*/
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
+/* /* Colors variables definition */
+:root {
+  --mainGreen: #008F4F;
+ --mainBlack: #0A0A0B;
+ --mainYellow:#F8D53A;
+ --mainRed: #DA1B2B;
+ --mainWhite: #fff;
+ --mainGrey: rgb(238, 238, 238);
+}
 /* Material icons */
 .material-icons {
  font-family: 'Material Icons';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MenuItem, MegaMenuItem } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
         icon: ''
       },
       {
-        label: '',
+        label: 'SVOD Tracker',
         icon: ''
       },
       {

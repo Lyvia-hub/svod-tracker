@@ -1,0 +1,45 @@
+// .banner {
+//  background-image: url('./../../../../assets/images/home-banner.jpg');
+//  background-repeat: no-repeat;
+//  background-size: cover;
+//  min-height: 70vh;
+// }
+
+.max-height {
+  min-height: calc(100vh - 76px);
+  position: relative;
+  background: url('./../../../../assets/images/home-banner.jpg') center/cover no-repeat fixed;
+  @media (min-width: 768px) {
+    //background-image: url('../../../../assets/img/accueil_tablette.jpg');
+  }
+  @media (min-width: 1200px) {
+    //background-image: url('../../../../assets/img/accueil_desktop.jpg');
+  }
+}
+
+.main-banner,
+.banner-link {
+  margin-top: -4rem;
+}
+
+.main-banner {
+  text-shadow: 1px 0px 3px rgba(0,0,0,0.8);
+}
+
+.banner-title {
+  font-size: 2rem;
+  @media (min-width: 576px) {
+    font-size: 4rem
+  }
+}
+
+.banner-link {
+  font-size: 1.5rem;
+  border: 0.2rem solid;
+
+}
+
+.banner-link:hover {
+  // background: var(--mainBlack);
+  // color: var(--mainRed);
+}

@@ -1,63 +1,77 @@
-<p-menubar [model]="items">
+<!-- <p-menubar [model]="items">
 
-</p-menubar>
+</p-menubar> -->
 
-<!-- <div class="card">
-    <h:form>
-        <p:growl id="messages"/>
+<header id="header">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
 
-        <p:menubar>
-            <p:submenu label="File" icon="pi pi-fw pi-file">
-                <p:submenu label="New" icon="pi pi-fw pi-plus">
-                    <p:menuitem value="Bookmark" icon="pi pi-fw pi-bookmark"/>
-                    <p:menuitem value="Video" icon="pi pi-fw pi-video"/>
-                </p:submenu>
-                <p:menuitem value="Delete" icon="pi pi-fw pi-trash"/>
-                <p:divider />
-                <p:menuitem value="Export" icon="pi pi-fw pi-external-link"/>
-            </p:submenu>
+    <!-- SVOD Tracker -->
+    <a class="navbar-brand" routerLink="home">
+      <!-- <img class="logoST" src="../../../../assets/img/" alt="logo SVOD Tracker"> -->
+      <span class="svod-tracker">SVOD Tracker</span>
+    </a>
 
-            <p:submenu label="Edit" icon="pi pi-fw pi-pencil">
-                <p:menuitem value="Left" icon="pi pi-fw pi-align-left"/>
-                <p:menuitem value="Right" icon="pi pi-fw pi-align-right"/>
-                <p:menuitem value="Center" icon="pi pi-fw pi-align-center"/>
-                <p:menuitem value="Justify" icon="pi pi-fw pi-align-justify"/>
-            </p:submenu>
+    <!-- burger menu -->
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+        <span class="toggler-icon material-icons">menu</span>
+    </button>
 
-            <p:submenu label="Users" icon="pi pi-fw pi-user">
-                <p:menuitem value="New" icon="pi pi-fw pi-user-plus"/>
-                <p:menuitem value="Delete" icon="pi pi-fw pi-user-minus"/>
-                <p:submenu label="Search" icon="pi pi-fw pi-users">
-                    <p:submenu label="Filter" icon="pi pi-fw pi-filter">
-                        <p:menuitem value="Print" icon="pi pi-fw pi-print"/>
-                    </p:submenu>
-                    <p:menuitem value="List" icon="pi pi-fw pi-bars"/>
-                </p:submenu>
-            </p:submenu>
+    <div class="collapse navbar-collapse ml-auto" id="myNavbar">
+      <ul class="navbar-nav">
 
-            <p:submenu label="Events" icon="pi pi-fw pi-calendar">
-                <p:submenu label="Edit" icon="pi pi-fw pi-pencil">
-                    <p:menuitem value="Save" icon="pi pi-fw pi-calendar-plus"/>
-                    <p:menuitem value="Delete" icon="pi pi-fw pi-calendar-minus"/>
-                </p:submenu>
-                <p:submenu label="Archieve" icon="pi pi-fw pi-calendar-times">
-                    <p:menuitem value="Remove" icon="pi pi-fw pi-calendar-minus"/>
-                </p:submenu>
-            </p:submenu>
+        <!-- Accueil -->
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="">Accueil</a>
+        </li>
 
-            <p:divider layout="vertical"/>
+        <!-- Netflix -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="">Netflix</a>
+        </li>
 
-            <p:menuitem value="Quit" icon="pi pi-fw pi-power-off"/>
+        <!-- Amazon -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="">Amazon</a>
+        </li>
 
-            <f:facet name="options">
-                <div class="ui-input-icon-left p-mr-2">
-                    <i class="pi pi-fw pi-search" />
-                    <p:inputText placeholder="Search"/>
-                </div>
-                <p:button value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"/>
-            </f:facet>
-        </p:menubar>
-    </h:form>
-</div> -->
+        <!-- Disney + -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="">Disney +</a>
+        </li>
+
+        <!-- User -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">Utilisateur</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="svod-netflix">S'inscrire</a></li>
+            <li><a class="dropdown-item" routerLink="svod-ocs">Se connecter</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" routerLink="svod-amazon-video">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- logo e-shop -->
+      <!--
+        <div class="nav-info-items d-none d-lg-flex">
+
+          <div class="nav-info align-items-center d-flex justify-content-between mx-lg-5">
+          <span class="info-icon mx-lg-3 material-icons">phone</span>
+          <p class="mb-0">+ 123 456 789</p>
+        </div>
+        <div id="cart-info" class="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
+          <span class="cart-info__icon mr-lg-3 material-icons">shopping_cart</span>
+          <p class="mb-0 text-capitalize">
+            <span id="item-count">2</span>
+            produits - €
+            <span class="item-total">10.49
+            </span>
+        </div>
+      </div>-->
+    </div>
+  </nav>
+</header>
+
+
 
 

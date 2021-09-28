@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SigninComponent } from './signin/signin.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SigninComponent
+  ],
   imports: [
     SharedModule
   ]

@@ -72,7 +72,7 @@ h2 {
     transform: translate(-50%,-50%);
 }
 
-.signin {
+.login {
   margin-bottom: 30px;
   @extend display-flex;
   padding: 75px 0;
@@ -120,7 +120,6 @@ label {
   color: var(--black-color);
 }
 
-.material-icons-name,
 .material-icons-mail,
 .material-icons-pwd {
   font-size: 18px;

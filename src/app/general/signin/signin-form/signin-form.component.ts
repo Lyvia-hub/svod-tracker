@@ -49,9 +49,6 @@ export class SigninFormComponent implements OnInit {
   }
 
   submit() {
-    console.info(this.name?.value);
-    console.info(this.email?.value);
-    console.info(this.password?.value);;
     this.router.navigate(['/app/dashboard']);
   }
 

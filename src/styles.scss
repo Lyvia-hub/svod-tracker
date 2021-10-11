@@ -3,6 +3,7 @@
 /*Font Family*/
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 /* /* Colors variables definition */
 :root {
@@ -12,6 +13,9 @@
  --mainRed: #DA1B2B;
  --mainWhite: #fff;
  --mainGrey: rgb(238, 238, 238);
+ --black-color : #222;
+--blue-color : #6dabe4;
+--grey-light: #999;
 }
 /* Material icons */
 .material-icons {
@@ -64,3 +68,16 @@
 body {
  font-family: 'Nunito', sans-serif;
 }
+
+/* @extend display-flex; */
+display-flex {
+    display: flex;
+    display: -webkit-flex;
+}
+/* @extend list-type-ulli; */
+list-type-ulli {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
+import { ToastModule } from 'primeng/toast';
 
 
 
@@ -14,12 +15,14 @@ import { MenuModule } from 'primeng/menu';
     CommonModule,
     ButtonModule,
     MenubarModule,
-    MenuModule
+    MenuModule,
+    ToastModule
   ],
   exports: [
     ButtonModule,
     MenubarModule,
-    MenuModule
+    MenuModule,
+    ToastModule
   ]
 })
 export class PrimeNgModule { }

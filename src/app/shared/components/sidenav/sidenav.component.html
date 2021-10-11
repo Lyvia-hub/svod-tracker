@@ -1,0 +1,27 @@
+<div class="sticky-top">
+  <div class="nav flex-column">
+    <img
+    class="card-img-top"
+    src="../../../../assets/images/sidenav-banner.jpg"
+    alt="sidenav banner">
+    <div class="card-header">Menu</div>
+    <ul class="list-group list-group-flush">
+      <li
+      (click)="navigate(dashboardPath)"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="list-group-item">
+        <span class="material-icons align-bottom mr-1">home</span>
+        Tableau de bord
+      </li>
+      <li
+      (click)="navigate(profilPath)"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="list-group-item">
+        <span class="material-icons align-bottom mr-1">person</span>
+        Profil
+      </li>
+    </ul>
+  </div>
+</div>

@@ -4,7 +4,11 @@
     class="card-img-top"
     src="../../../../assets/images/sidenav-banner.jpg"
     alt="sidenav banner">
-    <div class="card-header">Menu</div>
+    <div class="card-header">
+      <a (click)="toggleSidenav()" class="text-left menu">
+        <span class="material-icons material-icons-menu align-bottom mr-1">close</span>Menu
+      </a>
+    </div>
     <ul class="list-group list-group-flush">
       <li
       (click)="navigate(dashboardPath)"

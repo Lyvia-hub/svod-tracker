@@ -1,5 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from '../shared/shared.module';
 import { GeneralModule } from '../general/general.module';
@@ -22,6 +23,7 @@ import { LoaderComponent } from './components/loader/loader.component';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     SharedModule,
     GeneralModule,
     UserModule,

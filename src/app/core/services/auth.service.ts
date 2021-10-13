@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 
@@ -13,7 +14,8 @@ import { UsersService } from './users.service';
 export class AuthService {
 
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private router: Router) { }
 
   private user: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
@@ -68,6 +70,8 @@ export class AuthService {
 
 
   logout(): void {
+    this.user.next(null);
+    this.router.navigate(['/home']);
 
   }
 }

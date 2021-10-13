@@ -46,7 +46,7 @@
             <li [class.active]=isActive(signinPath)><a class="dropdown-item" (click)=navigate(signinPath) >Inscription</a></li>
             <li [class.active]="isActive(loginPath)"><a class="dropdown-item" (click)=navigate(loginPath)>Connexion</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item">Déconnexion</a></li>
+            <li><a class="dropdown-item" (click)="logout()">Déconnexion</a></li>
           </ul>
         </li>
       </ul>

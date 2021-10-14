@@ -4,6 +4,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { LoginFormComponent } from './login-form.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
   let fixture: ComponentFixture<LoginFormComponent>;
@@ -13,6 +15,7 @@ describe('LoginFormComponent', () => {
       declarations: [LoginFormComponent],
       imports: [
         FormsModule,
+        HttpClientModule,
         ReactiveFormsModule,
         RouterTestingModule
       ]

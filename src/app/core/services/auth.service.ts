@@ -15,7 +15,8 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private router: Router) { }
+    private router: Router,
+    private usersService: UsersService) { }
 
   private user: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
@@ -52,19 +53,19 @@ export class AuthService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    return this.http.post<User>(url, data, httpOptions);
-    // .pipe(
-    //   switchMap((data: any) => {
-    //     const jwt: string = data.idToken;
-    //     const user = new User({
-    //       email: email,
-    //       id: localId,
-    //       name: name
-    //     });
-    //     return this.userService.save(user, jwt);
-    //   }),
-    //   tap(user => this.user.next(user))
-    // );
+    return this.http.post<User>(url, data, httpOptions)
+      .pipe(
+        switchMap((data: any) => {
+          const jwt: string = data.idToken;
+          const user = new User({
+            email: data.email,
+            id: data.localId,
+            name: name
+          });
+          return this.usersService.save(user, jwt);
+        }),
+        //tap(user => this.user.next(user))
+      );
 
   }
 

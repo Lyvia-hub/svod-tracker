@@ -4,7 +4,7 @@
   border:3px solid red;
 }*/
 
-.svod-tracker {
+.navbar-brand {
   margin-left:10px;
   font-family: 'Fredoka One', cursive;
   font-size: 1.2rem;
@@ -15,14 +15,15 @@
   outline: none !important;
   box-shadow: none !important;
   border: none;
+  color: var(--mainWhite)
 }
 
-.toggler-icon{
-  font-size: 2rem;
+span.navbar-toggler-icon {
   color: var(--mainWhite);
+  font-size: 1.5rem;
 }
 
-.nav-link{
+.nav-link {
   font-family: 'Baloo 2', cursive;
   transition: color 1s ease-in-out;
   font-size: 1rem;
@@ -34,14 +35,15 @@
   cursor: pointer;
 }
 
-  .dropdown-toggle:after {
-      vertical-align: middle;
-    }
-
   li {
     text-align: right;
     @media (min-width: 992px) {
       text-align: left;
       margin-left: 2rem;
     }
+  }
+
+  .navbar {
+    padding: 0px;
+    padding-top: 5px;
   }

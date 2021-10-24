@@ -2,49 +2,45 @@
 
 </p-menubar> -->
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
 
-    <!-- SVOD Tracker -->
-    <div class="d-flew flex-row">
-      <a class="navbar-brand " routerLink="home" (click)="navigate(homePath)">
-      <!-- <img class="logoST" src="../../../../assets/img/" alt="logo SVOD Tracker"> -->
-      <span class="svod-tracker">SVOD Tracker</span>
-    </a>
-    </div>
+  <!-- SVOD Tracker -->
+  <a class="navbar-brand" routerLink="home" (click)="navigate(homePath)">SVOD Tracker</a>
 
+  <!-- burger menu -->
+  <button
+    type="button"
+    class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <!-- burger menu -->
-    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#myNavbar">
-        <span class="toggler-icon material-icons">menu</span>
-    </button>
+  <div class="collapse navbar-collapse ml-auto justify-content-end" id="myNavbar">
 
-    <div class="collapse navbar-collapse ml-auto justify-content-end" id="myNavbar">
+    <ul class="navbar ">
 
-      <ul class="navbar ">
+      <!-- Accueil -->
+      <li class="nav-item" [class.active]=isActive(homePath)>
+        <a class="nav-link" (click)="navigate(homePath)">
+          <span class="material-icons md-24">house</span>
+        </a>
+      </li>
 
-        <!-- Accueil -->
-        <li class="nav-item" [class.active]=isActive(homePath)>
-          <a class="nav-link" (click)="navigate(homePath)">
-            <span class="material-icons md-24">house</span>
-          </a>
-        </li>
+      <!-- User Inscription -->
+      <li class="nav-item" [class.active]=isActive(signinPath)>
+        <a class="nav-link" (click)=navigate(signinPath)>
+          Inscription
+        </a>
+      </li>
 
-        <!-- User Inscription -->
-        <li class="nav-item" [class.active]=isActive(signinPath)>
-          <a class="nav-link" (click)=navigate(signinPath)>
-            Inscription
-          </a>
-        </li>
-
-        <!-- User Connexion -->
-        <li class="nav-item" [class.active]="isActive(loginPath)">
-          <a class="nav-link" (click)=navigate(loginPath)>
-            Connexion
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+      <!-- User Connexion -->
+      <li class="nav-item" [class.active]="isActive(loginPath)">
+        <a class="nav-link" (click)=navigate(loginPath)>
+          Connexion
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 
 

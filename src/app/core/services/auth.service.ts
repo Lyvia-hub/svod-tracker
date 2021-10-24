@@ -23,8 +23,7 @@ export class AuthService {
   readonly user$: Observable<User | null> = this.user.asObservable();
 
   login(email: string, password: string): Observable<User | null> {
-    const url = `${environment.firebase.auth.baseURL}/verifyPassword?key=
-              ${environment.firebase.apiKey}`;
+    const url = `${environment.firebase.auth.baseURL}/verifyPassword?key=${environment.firebase.apiKey}`;
 
     const data = {
       email: email,
@@ -64,15 +63,14 @@ export class AuthService {
           });
           return this.usersService.save(user, jwt);
         }),
-        //tap(user => this.user.next(user))
+        tap(user => this.user.next(user))
       );
 
   }
 
-
   logout(): void {
     this.user.next(null);
     this.router.navigate(['/home']);
-
   }
+
 }

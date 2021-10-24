@@ -18,26 +18,21 @@
 }
 
 .toggler-icon{
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--mainWhite);
 }
 
 .nav-link{
   font-family: 'Baloo 2', cursive;
   transition: color 1s ease-in-out;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  color: var(--mainWhite);
 }
 
 .nav-link:hover{
   color: var(--mainRed) !important;
   cursor: pointer;
 }
-
-
-#myNavbar {
-  justify-content: flex-end;
-}
-
 
   .dropdown-toggle:after {
       vertical-align: middle;
@@ -49,12 +44,4 @@
       text-align: left;
       margin-left: 2rem;
     }
-  }
-
-  .nav-info-items{
-    color: white;
-  }
-
-  .dropdown-menu {
-    cursor: pointer;
   }

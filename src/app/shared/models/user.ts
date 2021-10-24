@@ -8,7 +8,7 @@ export class User {
   hasAmazon: boolean;
   hasDisney: boolean;
 
-  constructor(
+  constructor(options: {
     id?: string,
     name?: string,
     email?: string,
@@ -17,14 +17,14 @@ export class User {
     hasNetflix?: boolean,
     hasAmazon?: boolean,
     hasDisney?: boolean,
-  ) {
-    this.id = id || null;
-    this.name = name || '';
-    this.email = email || '';
-    this.password = password || '';
-    this.avatar = avatar || '';
-    this.hasNetflix = hasNetflix || false;
-    this.hasAmazon = hasAmazon || false;
-    this.hasDisney = hasDisney || false;
+  } = {}) {
+    this.id = options.id || null;
+    this.name = options.name || '';
+    this.email = options.email || '';
+    this.password = options.password || '';
+    this.avatar = options.avatar || '';
+    this.hasNetflix = options.hasNetflix || false;
+    this.hasAmazon = options.hasAmazon || false;
+    this.hasDisney = options.hasDisney || false;
   }
 }

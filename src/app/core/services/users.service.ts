@@ -14,7 +14,6 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-
   save(user: User, jwt: string): Observable<User | null> {
     const url =
       `${environment.firebase.firestore.baseURL}/users?key=
@@ -35,6 +34,25 @@ export class UsersService {
     );
   }
 
+  get(userId: string, jwt: string): Observable<User | null> {
+
+    const url = `${environment.firebase.firestore.baseURL}:runQuery?key=${environment.firebase.apiKey}`;
+
+    const data = this.getStructuredQuery(userId);
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwt}`
+      })
+    };
+    return this.http.post(url, data, httpOptions).pipe(
+      switchMap((data: any) => {
+        return of(this.getUserFromFirestore(data[0].document.fields));
+      })
+    );
+  }
+
   private getUserFromFirestore(fields: any): User {
     return new User({
       id: fields.id.stringValue,
@@ -51,6 +69,24 @@ export class UsersService {
         name: { stringValue: user.name },
         email: { stringValue: user.email },
         avatar: { stringValue: user.avatar }
+      }
+    };
+  }
+
+  private getStructuredQuery(userId: string): Object {
+    return {
+      'structuredQuery': {
+        'from': [{
+          'collectionId': 'users'
+        }],
+        'where': {
+          'fieldFilter': {
+            'field': { 'fieldPath': 'id' },
+            'op': 'EQUAL',
+            'value': { 'stringValue': userId }
+          }
+        },
+        'limit': 1
       }
     };
   }

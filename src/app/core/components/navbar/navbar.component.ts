@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { User } from 'src/app/shared/models/user';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -7,16 +9,25 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
   homePath: string = 'home';
   loginPath: string = 'login';
   signinPath: string = 'signin';
 
+  user!: User | null;
+  private subscription: Subscription = new Subscription;
+
   constructor(private router: Router,
     private authService: AuthService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.subscription = this.authService.user$.subscribe(user => this.user = user);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   public isActive(page: string): boolean {
     return this.router.isActive(page, true);

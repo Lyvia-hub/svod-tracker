@@ -14,28 +14,41 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse ml-auto justify-content-end" id="myNavbar">
+  <!-- Cas où l'utilisateur n'est pas connecté -->
+  <div *ngIf="!user" class="collapse navbar-collapse ml-auto justify-content-end" id="myNavbar">
+      <ul class="navbar mr-auto">
+        <!-- Accueil -->
+        <li class="nav-item" [class.active]=isActive(homePath)>
+          <a class="nav-link" (click)="navigate(homePath)">
+            <span class="material-icons md-24 align-middle">house</span>
+          </a>
+        </li>
+        <!-- User Inscription -->
+        <li class="nav-item" [class.active]=isActive(signinPath)>
+          <a class="nav-link" (click)=navigate(signinPath)>
+            Inscription
+          </a>
+        </li>
+        <!-- User Connexion -->
+        <li class="nav-item" [class.active]="isActive(loginPath)">
+          <a class="nav-link" (click)=navigate(loginPath)>
+            Connexion
+          </a>
+        </li>
+      </ul>
+  </div>
 
-    <ul class="navbar ">
-
-      <!-- Accueil -->
-      <li class="nav-item" [class.active]=isActive(homePath)>
-        <a class="nav-link" (click)="navigate(homePath)">
-          <span class="material-icons md-24">house</span>
-        </a>
+  <!-- Cas où l'utilisateur est connecté -->
+  <div *ngIf="user" class="collapse navbar-collapse ml-auto justify-content-end" id="myNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="connectedUser">Connecté.e en tant que : {{user?.name}}</a>
       </li>
-
-      <!-- User Inscription -->
-      <li class="nav-item" [class.active]=isActive(signinPath)>
-        <a class="nav-link" (click)=navigate(signinPath)>
-          Inscription
-        </a>
-      </li>
-
-      <!-- User Connexion -->
-      <li class="nav-item" [class.active]="isActive(loginPath)">
-        <a class="nav-link" (click)=navigate(loginPath)>
-          Connexion
+    </ul>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">
+          <span class="material-icons md-24">follow_the_signs</span>
         </a>
       </li>
     </ul>

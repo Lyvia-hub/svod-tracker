@@ -47,3 +47,11 @@ span.navbar-toggler-icon {
     padding: 0px;
     padding-top: 5px;
   }
+
+  .connectedUser {
+    cursor:default;
+    text-decoration: none;
+    font-family: 'Baloo 2', cursive;
+    color: var(--mainWhite);
+    font-size: 1rem;
+  }

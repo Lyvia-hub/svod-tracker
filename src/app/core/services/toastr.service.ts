@@ -17,7 +17,7 @@ export class ToastrService {
   constructor() { }
 
   showToastr(toastr: Toastr): void {
-    timer(0, 3000).pipe(take(2)).subscribe(i => {
+    timer(0, 5000).pipe(take(2)).subscribe(i => {
       if (i === 0) {
         //affiche le toastr pendant 3 secondes
         this.toastr.next(toastr);

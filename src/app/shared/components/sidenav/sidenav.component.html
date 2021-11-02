@@ -12,16 +12,14 @@
     <ul class="list-group list-group-flush">
       <li
       (click)="navigate(dashboardPath)"
-      routerLinkActive="active-link"
-      [routerLinkActiveOptions]="{ exact: true }"
+      [class.list-group-item-secondary]="isActive(dashboardPath)"
       class="list-group-item">
         <span class="material-icons align-bottom mr-1">home</span>
         Tableau de bord
       </li>
       <li
       (click)="navigate(profilPath)"
-      routerLinkActive="active-link"
-      [routerLinkActiveOptions]="{ exact: true }"
+      [class.list-group-item-secondary]="isActive(profilPath)"
       class="list-group-item">
         <span class="material-icons align-bottom mr-1">person</span>
         Profil

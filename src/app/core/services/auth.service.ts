@@ -9,6 +9,7 @@ import { User } from 'src/app/shared/models/user';
 import { UsersService } from './users.service';
 import { ErrorService } from './error.service';
 import { LoaderService } from './loader.service';
+import { ToastrService } from './toastr.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class AuthService {
     private router: Router,
     private usersService: UsersService,
     private errorService: ErrorService,
-    private loaderService: LoaderService) { }
+    private loaderService: LoaderService,
+    private toastrService: ToastrService) { }
 
   private user: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
@@ -100,7 +102,24 @@ export class AuthService {
 
   autoLogin(user: User) {
     this.user.next(user);
-    this.router.navigate(['app/dashboard']);
+    this.router.navigate(['user/dashboard']);
+  }
+
+  updateUserState(user: User): Observable<User | null> {
+    this.loaderService.setLoading(true);
+    return this.usersService.update(user).pipe(
+      tap(user => this.user.next(user)),
+      tap(_ => this.toastrService.showToastr({
+        category: 'success',
+        message: 'Vos informations ont été mises à jour !'
+      })),
+      catchError(error => this.errorService.handleError(error)),
+      finalize(() => this.loaderService.setLoading(false))
+    );
+  }
+
+  get currentUser(): User | null {
+    return this.user.getValue();
   }
 
   private logoutTimer(expirationTime: number): void {

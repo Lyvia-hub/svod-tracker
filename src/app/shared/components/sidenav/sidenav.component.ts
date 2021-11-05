@@ -10,9 +10,8 @@ import { LayoutService } from 'src/app/core/services/layout.service';
 })
 export class SidenavComponent implements OnInit {
 
-  prefix: string = 'app';
-  dashboardPath: string = `${this.prefix}/dashboard`;
-  profilPath: string = `${this.prefix}/profil`;
+  dashboardPath: string = 'user/dashboard';
+  profilPath: string = 'user/profil';
 
   constructor(
     private router: Router,
@@ -23,6 +22,7 @@ export class SidenavComponent implements OnInit {
   public navigate(page: string): void {
     this.router.navigate([page]);
   }
+
   public isActive(page: string): boolean {
     return this.router.isActive(page, true);
   }

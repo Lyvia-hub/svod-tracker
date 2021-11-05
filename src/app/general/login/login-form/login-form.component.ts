@@ -43,7 +43,7 @@ export class LoginFormComponent implements OnInit {
 
   submit() {
     this.authService.login(this.email?.value, this.password?.value).subscribe(
-      _ => this.router.navigate(['/app/dashboard']),
+      _ => this.router.navigate(['/user/dashboard']),
       _ => this.loginForm.reset()
     );
   }

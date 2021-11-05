@@ -55,7 +55,7 @@ export class SigninFormComponent implements OnInit {
     this.authService
       .signin(this.name?.value, this.email?.value, this.password?.value)
       .subscribe(
-        _ => this.router.navigate(['/app/dashboard']),
+        _ => this.router.navigate(['/user/dashboard']),
         _ => this.signinForm.reset()
       );
   }

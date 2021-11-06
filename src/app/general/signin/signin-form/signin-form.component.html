@@ -27,26 +27,25 @@
     </div>
 
           <!-- le champ de l’adresse email. -->
-          <div class="form-group">
-          <label for="email"><span class="material-icons material-icons-mail zmdi">email</span></label>
-          <input
-            id="email"
-            type="email"
-            formControlName="email"
-            class="form-control"
-            placeholder="Votre email"
-            autocorrect="off"
-            autocomplete="off"
-          />
-          <small *ngIf="email && email.errors && email.dirty" class="form-text text-muted">
-            <span [hidden]="!email.errors.required">
+    <div class="form-group">
+      <label for="email"><span class="material-icons material-icons-mail zmdi">email</span></label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        class="form-control"
+        placeholder="Votre email"
+        autocorrect="off"
+        autocomplete="off"/>
+      <small *ngIf="email && email.errors && email.dirty" class="form-text text-muted">
+        <span [hidden]="!email.errors.required">
             Email requis.
-            </span>
-            <span [hidden]="!email.errors.email">
+        </span>
+        <span [hidden]="!email.errors.email">
             Entrez une adresse email valide.
-            </span>
-          </small>
-          </div>
+        </span>
+      </small>
+    </div>
 
           <!-- le champ du mot de passe. -->
 

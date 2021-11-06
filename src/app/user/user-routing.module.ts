@@ -18,6 +18,10 @@ const routes: Routes = [
       {
         path: 'profil',
         loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule)
+      },
+      {
+        path: 'profil/edit',
+        loadChildren: () => import('./profil/profil-edit/profil-edit.module').then(m => m.ProfilEditModule)
       }
     ]
   }

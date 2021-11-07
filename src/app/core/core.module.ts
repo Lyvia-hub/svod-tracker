@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { GeneralModule } from '../general/general.module';
 import { UserModule } from '../user/user.module';
-import { ProgramsModule } from '../programs/programs.module';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -27,8 +26,7 @@ import { ToastrComponent } from './components/toastr/toastr.component';
     HttpClientModule,
     SharedModule,
     GeneralModule,
-    UserModule,
-    ProgramsModule
+    UserModule
   ],
   exports: [
     NavbarComponent,

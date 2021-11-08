@@ -30,6 +30,8 @@ export class TvShowsService {
     return this.http.get(`${environment.tmdb.baseUrl}tv/on_the_air?api_key=${environment.tmdb.apiKey}&page=${page}&language=${environment.tmdb.language}`).pipe(
       finalize(() => this.loaderService.setLoading(false))
     );
+
+    // return this.http.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=03f43bd8bfb012f7aeff0ff75d705b6e&page=1&language=fr-CA`);
   }
 
   getTVShow(id: string): Observable<any> {

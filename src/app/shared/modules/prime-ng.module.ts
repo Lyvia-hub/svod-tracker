@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ButtonModule } from 'primeng/button';
-import { MenubarModule } from 'primeng/menubar';
-import { MenuModule } from 'primeng/menu';
-import { ToastModule } from 'primeng/toast';
+import { CarouselModule } from 'primeng/carousel';
 
 
 
@@ -13,16 +10,10 @@ import { ToastModule } from 'primeng/toast';
   declarations: [],
   imports: [
     CommonModule,
-    ButtonModule,
-    MenubarModule,
-    MenuModule,
-    ToastModule
+    CarouselModule
   ],
   exports: [
-    ButtonModule,
-    MenubarModule,
-    MenuModule,
-    ToastModule
+    CarouselModule
   ]
 })
 export class PrimeNgModule { }

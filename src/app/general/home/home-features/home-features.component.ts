@@ -42,11 +42,9 @@ export class HomeFeaturesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.isLoading$ = this.loaderService.isLoading$;
     this.trendingMovies(1);
     this.trendingTVShows(1);
-
   }
 
   trendingMovies(page: number) {
@@ -60,7 +58,7 @@ export class HomeFeaturesComponent implements OnInit {
   }
 
   trendingTVShows(page: number) {
-    this.tvShowsService.getTvOnTheAir(page).pipe(
+    this.tvShowsService.getPopularTVShow(page).pipe(
       delay(2000)).subscribe(
         (res: any) => {
           console.log(res);

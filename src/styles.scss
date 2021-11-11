@@ -4,18 +4,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
 
-/* /* Colors variables definition */
+/* Shared Styles*/
+@import '../src/assets/scss/listing';
+
+$breakpoint-xsmall: 640px;
+$breakpoint-small: 768px;
+$breakpoint-medium: 1024px;
+$breakpoint-large: 1200px;
+$breakpoint-xlarge: 1400px;
+
+/* Colors variables definition */
 :root {
   --mainGreen: #008F4F;
- --mainBlack: #0A0A0B;
- --mainYellow:#F8D53A;
- --mainRed: #DA1B2B;
- --mainWhite: #fff;
- --mainGrey: rgb(238, 238, 238);
- --black-color : #222;
---blue-color : #6dabe4;
---grey-light: #999;
+  --mainBlack: #0A0A0B;
+  --mainYellow:#F8D53A;
+  --mainRed: #DA1B2B;
+  --mainWhite: #fff;
+  --mainGrey: rgb(238, 238, 238);
+  --black-color : #222;
+  --blue-color : #6dabe4;
+  --grey-light: #999;
 }
 /* Material icons */
 .material-icons {

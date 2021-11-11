@@ -4,10 +4,17 @@
   border:3px solid red;
 }*/
 
+.navbar {
+  padding: 0px;
+  padding-top: 5px;
+}
+
+/* Svod Tracker*/
 .navbar-brand {
   margin-left:10px;
   font-family: 'Fredoka One', cursive;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 /* nav links */
@@ -43,15 +50,18 @@ span.navbar-toggler-icon {
     }
   }
 
-  .navbar {
-    padding: 0px;
-    padding-top: 5px;
-  }
-
   .connectedUser {
-    cursor:default;
+    cursor: default;
     text-decoration: none;
     font-family: 'Baloo 2', cursive;
     color: var(--mainWhite);
     font-size: 1rem;
   }
+
+  .utilisateurConnecteListe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+

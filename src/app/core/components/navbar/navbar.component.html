@@ -40,12 +40,16 @@
 
   <!-- Cas où l'utilisateur est connecté -->
   <div *ngIf="user" class="collapse navbar-collapse ml-auto justify-content-end" id="myNavbar">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto utilisateurConnecteListe">
+      <!-- Accueil -->
+      <li class="nav-item" [class.active]=isActive(homePath)>
+        <a class="nav-link" (click)="navigate(homePath)">
+          <span class="material-icons text-color-white md-24 align-middle">house</span>
+        </a>
+      </li>
       <li class="nav-item">
         <a class="connectedUser">Connecté.e en tant que : {{user?.name}}</a>
       </li>
-    </ul>
-    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" (click)="logout()">
           <span class="material-icons md-24">follow_the_signs</span>

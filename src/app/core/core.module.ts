@@ -1,6 +1,7 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from '../shared/shared.module';
 import { GeneralModule } from '../general/general.module';
@@ -23,6 +24,7 @@ import { ToastrComponent } from './components/toastr/toastr.component';
   ],
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
     GeneralModule,

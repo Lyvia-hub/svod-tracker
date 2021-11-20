@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { LoaderService } from 'src/app/core/services/loader.service';
@@ -16,11 +17,14 @@ export class HomeFeaturesComponent implements OnInit {
 
   tvShow: any;
   movieNowPlaying: any;
+  moviesPath: string = '/movies';
+  tvShowsPath: string = '/tvShows';
   responsiveOptions: any;
   constructor(
     private tvShowsService: TvShowsService,
     private moviesService: MoviesService,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private router: Router
   ) {
     this.responsiveOptions = [
       {
@@ -65,6 +69,10 @@ export class HomeFeaturesComponent implements OnInit {
           console.log(res.results)
           this.tvShow = res.results
         });
+  }
+
+  public navigate(page: string): void {
+    this.router.navigate([page]);
   }
 
 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { LoaderService } from './loader.service';
 
@@ -58,6 +58,13 @@ export class MoviesService {
 
   getMoviesProviders(): Observable<any> {
     return this.http.get(`${environment.tmdb.baseUrl}watch/providers/movie?api_key=${environment.tmdb.apiKey}&language=en-US`)
+  }
+
+  searchMovies(searchTerm: string): Observable<any> {
+    if (!searchTerm.trim()) {
+      return of([]);
+    }
+    return this.http.get(`${environment.tmdb.baseUrl}search/movie?api_key=${environment.tmdb.apiKey}&query=${searchTerm}`);
   }
 
 

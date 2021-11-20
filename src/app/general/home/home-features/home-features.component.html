@@ -2,13 +2,12 @@
   <div class="listing">
   <div class="listing__head">
     <h3 class="listing__title">Films à l'affiche</h3>
-      <!-- <a [routerLink]="['/']" routerLinkActive="router-link-active" class="listing__explore"> -->
-      <a class="listing__explore">
+      <a class="listing__explore" (click)="navigate(moviesPath)">
         <strong>Voir plus</strong>
       </a>
   </div>
 
-  <!-- <app-skeleton *ngIf="isLoading | async" ></app-skeleton> -->
+  <!-- <p-skeleton *ngIf="isLoading$ | async"></p-skeleton> -->
   <p-carousel
     [value]="movieNowPlaying"
     [numVisible]="6"
@@ -49,12 +48,12 @@
   <div class="listing__head">
     <h3 class="listing__title">Séries populaires</h3>
     <!-- <a [routerLink]="['/tv']" routerLinkActive="router-link-active" class="listing__explore"> -->
-    <a class="listing__explore">
+    <a class="listing__explore" (click)="navigate(tvShowsPath)">
       <strong>Voir plus</strong>
     </a>
   </div>
 
-  <!-- <app-skeleton *ngIf="loader"></app-skeleton> -->
+  <!-- <p-skeleton></p-skeleton> -->
   <p-carousel
     [value]="tvShow"
     [numVisible]="6"

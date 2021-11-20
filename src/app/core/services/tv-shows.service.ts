@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { LoaderService } from './loader.service';
@@ -46,6 +46,13 @@ export class TvShowsService {
 
   getTVShowsProviders(): Observable<any> {
     return this.http.get(`${environment.tmdb.baseUrl}watch/providers/tv?api_key=${environment.tmdb.apiKey}&language=en-US`);
+  }
+
+  searchtvShows(searchTerm: string): Observable<any> {
+    if (!searchTerm.trim()) {
+      return of([]);
+    }
+    return this.http.get(`${environment.tmdb.baseUrl}search/tv?api_key=${environment.tmdb.apiKey}&query=${searchTerm}`);
   }
 
 }

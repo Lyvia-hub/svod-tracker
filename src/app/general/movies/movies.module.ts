@@ -1,13 +1,8 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from 'primeng/api';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MoviesComponent } from './movies.component';
-
-import { MatPaginatorModule } from '@angular/material/paginator';
-
-
 
 
 @NgModule({
@@ -15,11 +10,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MoviesComponent
   ],
   imports: [
-    CommonModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
-    MatPaginatorModule,
     MoviesRoutingModule
   ]
 })

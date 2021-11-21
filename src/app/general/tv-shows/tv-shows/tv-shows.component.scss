@@ -1,0 +1,25 @@
+.searchdesign{
+  height: 44px;
+  background: var(--mainGrey);
+  border: 1px solid var(--mainBlack);
+  color: #212121;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.btnDesign{
+  height: 44px;
+  border-radius: 0 5px 5px 0;
+  width: 55px;
+  background: var(--mainRed);
+  border: var(--mainRed);
+  box-shadow: none;
+}
+
+input:focus {
+  box-shadow: none;
+}
+
+.listing__title {
+  font-size: 2rem;
+}

@@ -30,7 +30,6 @@ export class MoviesComponent implements OnInit {
   }
 
   searchMovies() {
-    console.log('la recherche porte sur : ' + this.searchTerm);
     this.moviesService.searchMovies(this.searchTerm).subscribe(
       res => {
         this.searchResult = res.results;

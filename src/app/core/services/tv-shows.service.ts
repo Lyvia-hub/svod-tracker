@@ -32,7 +32,7 @@ export class TvShowsService {
     );
   }
 
-  getTVShow(id: string): Observable<any> {
+  getTVShowById(id: string): Observable<any> {
     return this.http.get(`${environment.tmdb.baseUrl}tv/${id}?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}`);
   }
 
@@ -48,11 +48,11 @@ export class TvShowsService {
     return this.http.get(`${environment.tmdb.baseUrl}watch/providers/tv?api_key=${environment.tmdb.apiKey}&language=en-US`);
   }
 
-  searchtvShows(searchTerm: string): Observable<any> {
-    if (!searchTerm.trim()) {
-      return of([]);
-    }
-    return this.http.get(`${environment.tmdb.baseUrl}search/tv?api_key=${environment.tmdb.apiKey}&query=${searchTerm}`);
+  searchtvShows(searchTerm: string, page: number): Observable<any> {
+    this.loaderService.setLoading(true);
+    return this.http.get(`${environment.tmdb.baseUrl}search/tv?api_key=${environment.tmdb.apiKey}&page${page}&query=${searchTerm}`).pipe(
+      finalize(() => this.loaderService.setLoading(false))
+    );
   }
 
 }

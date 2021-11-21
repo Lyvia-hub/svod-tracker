@@ -14,7 +14,7 @@
               [(ngModel)]="searchTerm"
               type="text"
               class="form-control searchdesign"
-              placeholder="Chercher un film..."
+              placeholder="Rechercher un film..."
               name="searchTerm"
               (keyup.enter)="searchMovies()">
             <span class="input-group-btn">
@@ -31,8 +31,8 @@
     </div>
   </form>
 
-  <!--  Affichage du résultat de la recherche -->
-  <div class="row" *ngIf="searchResult">
+  <!--  Affichage des résultats de la recherche -->
+  <div class="row">
     <div class="col-md-2 listing__items" *ngFor="let movie of searchResult ">
       <div [routerLink]="['/movies/', movie.id]">
         <div class="listing-item-style">
@@ -40,13 +40,14 @@
             <div class="hover">
               <i class="material-icons">manage_search</i> Description
             </div>
-            <img *ngIf="movie?.poster_path" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movie?.poster_path}}"
+            <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movie?.poster_path}}"
               [alt]="movie.title ? movie.title : movie.name">
             <img *ngIf="!movie?.poster_path" src="assets/images/default-movie.png"
               [alt]="movie.title ? movie.title : movie.name">
             <h6>{{ movie?.title }}</h6>
             <p class="rate">
-              <i class="material-icons">star</i><span>{{movie?.vote_average}}</span> /10
+              <i class="material-icons">star</i>
+              <span>{{movie?.vote_average}}</span> /10
             </p>
             <p class="year">
               <span>{{movie?.release_date | date: 'yyyy'}}</span>
@@ -63,15 +64,18 @@
     <div class="col-md-2 listing__items" *ngFor="let movie of topRated">
       <div [routerLink]="['/movies/', movie.id]">
         <div class="listing-item-style">
+
           <div class="overlay">
             <div class="hover">
               <i class="material-icons">manage_search</i> Description
             </div>
           </div>
+
           <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movie?.poster_path}}"
             [alt]="movie.title ? movie.title : movie.name">
-          <img *ngIf="!movie?.poster_path" src="assets/images/default-movie.png"
+          <img *ngIf="!movie?.poster_path" src="../../../assets/images/default-movie.png"
             [alt]="movie.title ? movie.title : movie.name">
+
           <h6>{{ movie?.title }}</h6>
           <p class="rate">
             <i class="material-icons">star</i>

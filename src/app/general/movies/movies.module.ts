@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'primeng/api';
 import { MoviesRoutingModule } from './movies-routing.module';
-import { MoviesComponent } from './movies/movies.component';
+import { MoviesComponent } from './movies.component';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 

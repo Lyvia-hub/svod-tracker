@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'signin',
     loadChildren: () => import('./signin/signin.module').then(m => m.SigninModule)
+  },
+  {
+    path: 'movies',
+    loadChildren: () => import('./movies/movies.module').then(m => m.MoviesModule)
   }
 ];
 

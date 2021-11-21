@@ -28,6 +28,13 @@ export class MoviesService {
     );
   }
 
+  getTopRatedMovies(page: number): Observable<any> {
+    this.loaderService.setLoading(true);
+    return this.http.get(`${environment.tmdb.baseUrl}movie/top_rated?api_key=${environment.tmdb.apiKey}&page=${page}&language=${environment.tmdb.language}`).pipe(
+      finalize(() => this.loaderService.setLoading(false))
+    );
+  }
+
   getGenres(): Observable<any> {
     this.loaderService.setLoading(true);
     return this.http.get(`${environment.tmdb.baseUrl}genre/movie/list?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}`).pipe(
@@ -57,14 +64,15 @@ export class MoviesService {
   }
 
   getMoviesProviders(): Observable<any> {
-    return this.http.get(`${environment.tmdb.baseUrl}watch/providers/movie?api_key=${environment.tmdb.apiKey}&language=en-US`)
+    return this.http.get(`${environment.tmdb.baseUrl}watch/providers/movie?api_key=${environment.tmdb.apiKey}&language=en-US`);
   }
 
   searchMovies(searchTerm: string): Observable<any> {
-    if (!searchTerm.trim()) {
-      return of([]);
-    }
-    return this.http.get(`${environment.tmdb.baseUrl}search/movie?api_key=${environment.tmdb.apiKey}&query=${searchTerm}`);
+    this.loaderService.setLoading(true);
+    return this.http.get(`${environment.tmdb.baseUrl}search/movie?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}&page=1&include_adult=false&query=${searchTerm}`).pipe(
+      finalize(() => this.loaderService.setLoading(false))
+    );
+
   }
 
 

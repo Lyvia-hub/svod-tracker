@@ -15,8 +15,7 @@
     [circular]="false"
     [responsiveOptions]="responsiveOptions">
     <ng-template let-movie pTemplate="item">
-      <!-- <div class="listing-item-style" [routerLink]="['/movies/', movie.id]"> -->
-      <div class="listing-item-style">
+      <div class="listing-item-style" [routerLink]="['/movies/', movie.id]">
         <div class="overlay">
           <div class="hover">
             <i class="material-icons">manage_search</i> Description
@@ -47,7 +46,6 @@
 <div class="listing">
   <div class="listing__head">
     <h3 class="listing__title">Séries populaires</h3>
-    <!-- <a [routerLink]="['/tv']" routerLinkActive="router-link-active" class="listing__explore"> -->
     <a class="listing__explore" (click)="navigate(tvShowsPath)">
       <strong>Voir plus</strong>
     </a>
@@ -61,8 +59,7 @@
     [circular]="false"
     [responsiveOptions]="responsiveOptions">
       <ng-template let-tv pTemplate="item">
-        <!-- <div class="listing-item-style" [routerLink]="['/tv/', tv.id]"> -->
-        <div class="listing-item-style">
+        <div class="listing-item-style" [routerLink]="['/tv/', tv.id]">
           <div class="overlay">
             <div class="hover">
               <i class="material-icons">manage_search</i> Description

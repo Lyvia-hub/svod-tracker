@@ -4,6 +4,7 @@ import { NgxBootstrapModule } from './modules/ngx-bootstrap.module';
 import { PrimeNgModule } from './modules/prime-ng.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { AngularMaterialModule } from './modules/angular-material.module';
 
 
 
@@ -16,7 +17,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     CommonModule,
     PrimeNgModule,
     ReactiveFormsModule,
-    NgxBootstrapModule
+    NgxBootstrapModule,
+    AngularMaterialModule
   ],
   exports: [
     CommonModule,

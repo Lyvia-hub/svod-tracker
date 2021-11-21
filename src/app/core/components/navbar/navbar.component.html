@@ -62,6 +62,19 @@
       <li class="nav-item">
         <a class="connectedUser">Connecté.e en tant que : {{user?.name}}</a>
       </li>
+      <!-- Films -->
+        <li class="nav-item" [class.active]=isActive(moviesPath)>
+          <a class="nav-link" (click)=navigate(moviesPath)>
+            Films
+          </a>
+        </li>
+        <!-- Séries -->
+        <li class="nav-item" [class.active]=isActive(tvShowsPath)>
+          <a class="nav-link" (click)=navigate(tvShowsPath)>
+            Séries
+          </a>
+        </li>
+        <!-- Déconnexion -->
       <li class="nav-item">
         <a class="nav-link" (click)="logout()">
           <span class="material-icons md-24">follow_the_signs</span>

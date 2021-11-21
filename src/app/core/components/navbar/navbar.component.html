@@ -23,6 +23,18 @@
             <span class="material-icons md-24 align-middle">house</span>
           </a>
         </li>
+        <!-- Films -->
+        <li class="nav-item" [class.active]=isActive(moviesPath)>
+          <a class="nav-link" (click)=navigate(moviesPath)>
+            Films
+          </a>
+        </li>
+        <!-- Séries -->
+        <li class="nav-item" [class.active]=isActive(tvShowsPath)>
+          <a class="nav-link" (click)=navigate(tvShowsPath)>
+            Séries
+          </a>
+        </li>
         <!-- User Inscription -->
         <li class="nav-item" [class.active]=isActive(signinPath)>
           <a class="nav-link" (click)=navigate(signinPath)>

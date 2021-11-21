@@ -14,6 +14,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   homePath: string = 'home';
   loginPath: string = 'login';
   signinPath: string = 'signin';
+  moviesPath: string = 'movies';
+  tvShowsPath: string = 'tv-shows';
 
   user!: User | null;
   private subscription: Subscription = new Subscription;

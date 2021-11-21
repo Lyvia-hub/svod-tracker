@@ -18,7 +18,7 @@ export class HomeFeaturesComponent implements OnInit {
   tvShow: any;
   movieNowPlaying: any;
   moviesPath: string = '/movies';
-  tvShowsPath: string = '/tvShows';
+  tvShowsPath: string = '/tv-shows';
   responsiveOptions: any;
   constructor(
     private tvShowsService: TvShowsService,

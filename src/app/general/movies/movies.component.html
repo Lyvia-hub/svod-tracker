@@ -85,7 +85,7 @@
     </div>
   </div>
 
-  <mat-paginator [length]="totalResults" [pageSize]= 20 (page)=changePage($event)></mat-paginator>
+  <mat-paginator *ngIf="!searchResult" [length]="totalResults" [pageSize]= 20 (page)=changePage($event)></mat-paginator>
 
 </div>
 

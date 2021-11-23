@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 import { MoviesService } from 'src/app/core/services/movies.service';
 
 @Component({
@@ -12,11 +13,18 @@ export class MovieDetailsComponent implements OnInit {
   id: any;
   movie: any;
   casts: any = [];
+  officialTrailer: any;
+  relatedVideo: any;
+  display: boolean = false;
+  video: any;
+  baseUrl = 'https://www.youtube.com/embed/';
+  autoplay = '?rel=0;&autoplay=1&mute=0';
 
 
   constructor(
     private moviesService: MoviesService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +33,7 @@ export class MovieDetailsComponent implements OnInit {
         this.id = params['id'];
         this.getMovieDetails(this.id);
         this.getMovieCast(this.id);
+        this.getMovieVideos(this.id);
       }
     );
   }
@@ -41,5 +50,21 @@ export class MovieDetailsComponent implements OnInit {
       this.casts = res.cast;
       console.log(res.cast);
     });
+  }
+
+  getMovieVideos(id: any) {
+    this.moviesService.getMovieVideos(id).subscribe((res: any) => {
+      if (res.results.length) {
+        this.officialTrailer = res.results[0];
+        this.relatedVideo = res.results;
+      }
+    });
+  }
+
+  onVideoDisplayed(video: any): void {
+    this.display = true;
+    // this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + video.key + this.autoplay);
+    console.log('Ouvrir boite de dialogue pour afficher la vidéo', video);
+    console.log(this.display);
   }
 }

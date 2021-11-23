@@ -9,7 +9,7 @@ import { MoviesService } from 'src/app/core/services/movies.service';
 })
 export class MoviesComponent implements OnInit {
 
-  topRated: any;
+  popular: any;
   totalResults: any;
   searchResult: any;
   searchTerm: any;
@@ -17,12 +17,12 @@ export class MoviesComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit() {
-    this.getTopRatedMovies(1);
+    this.getPopularMovies(1);
   }
 
-  getTopRatedMovies(page: number) {
-    this.moviesService.getTopRatedMovies(page).pipe(delay(2000)).subscribe((res: any) => {
-      this.topRated = res.results;
+  getPopularMovies(page: number) {
+    this.moviesService.getPopular(page).pipe(delay(2000)).subscribe((res: any) => {
+      this.popular = res.results;
       this.totalResults = res.total_results;
       // this.loader = false;
     },
@@ -39,7 +39,7 @@ export class MoviesComponent implements OnInit {
   }
 
   changePage(event: { pageIndex: number; }) {
-    this.getTopRatedMovies(event.pageIndex + 1);
+    this.getPopularMovies(event.pageIndex + 1);
   }
 
 

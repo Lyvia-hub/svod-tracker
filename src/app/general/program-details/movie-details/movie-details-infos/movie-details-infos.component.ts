@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-movie-details-infos',
@@ -8,7 +8,16 @@ import { Component, Input } from '@angular/core';
 export class MovieDetailsInfosComponent {
 
   @Input() movie: any;
+  @Input() relatedVideo: any;
+  @Input() display: any;
+  @Input() video: any;
+
+  @Output() videoDisplayed = new EventEmitter<any>();
 
   constructor() { }
+
+  showDialog(video: any) {
+    this.videoDisplayed.emit(video);
+  }
 
 }

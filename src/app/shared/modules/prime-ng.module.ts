@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CarouselModule } from 'primeng/carousel';
 import { TabViewModule } from 'primeng/tabview';
+import { DialogModule } from 'primeng/dialog';
 
 
 
@@ -12,11 +13,13 @@ import { TabViewModule } from 'primeng/tabview';
   imports: [
     CommonModule,
     CarouselModule,
-    TabViewModule
+    TabViewModule,
+    DialogModule
   ],
   exports: [
     CarouselModule,
-    TabViewModule
+    TabViewModule,
+    DialogModule
   ]
 })
 export class PrimeNgModule { }

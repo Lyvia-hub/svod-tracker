@@ -61,7 +61,7 @@
   <!-- Affichage de la liste de films par défaut -->
   <!-- Ajout du loader ? -->
   <div class="row" *ngIf="!searchResult">
-    <div class="col-md-2 listing__items" *ngFor="let movie of topRated">
+    <div class="col-md-2 listing__items" *ngFor="let movie of popular">
       <div [routerLink]="['/movies/', movie.id]">
         <div class="listing-item-style">
 

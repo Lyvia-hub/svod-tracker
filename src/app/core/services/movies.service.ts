@@ -35,6 +35,21 @@ export class MoviesService {
     );
   }
 
+  getMovie(id: number): Observable<any> {
+    this.loaderService.setLoading(true);
+    return this.http.get(`${environment.tmdb.baseUrl}movie/${id}?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}`).pipe(
+      finalize(() => this.loaderService.setLoading(false))
+    );
+  }
+
+  getMovieCast(id: number): Observable<any> {
+    return this.http.get(`${environment.tmdb.baseUrl}movie/${id}/credits?api_key=${environment.tmdb.apiKey}&language=fr-CA`);
+  }
+
+  getMovieVideos(id: number): Observable<any> {
+    return this.http.get(`${environment.tmdb.baseUrl}movie/${id}/videos?api_key=${environment.tmdb.apiKey}&language=en-US`)
+  }
+
   getGenres(): Observable<any> {
     this.loaderService.setLoading(true);
     return this.http.get(`${environment.tmdb.baseUrl}genre/movie/list?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}`).pipe(
@@ -42,25 +57,14 @@ export class MoviesService {
     );
   }
 
-  getMoviesByGenre(id: string): Observable<any> {
+  getMoviesByGenre(id: number): Observable<any> {
     this.loaderService.setLoading(true);
     return this.http.get(`${environment.tmdb.baseUrl}genre/${id}/movies?api_key=${environment.tmdb.apiKey}`).pipe(
       finalize(() => this.loaderService.setLoading(false))
     );
   }
 
-  getMovie(id: string): Observable<any> {
-    this.loaderService.setLoading(true);
-    return this.http.get(`${environment.tmdb.baseUrl}movie/${id}?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}`).pipe(
-      finalize(() => this.loaderService.setLoading(false))
-    );
-  }
-
-  getMovieCast(id: string): Observable<any> {
-    return this.http.get(`${environment.tmdb.baseUrl}movie/${id}/credits?api_key=${environment.tmdb.apiKey}&language=fr-CA`);
-  }
-
-  getMovieReviews(id: string): Observable<any> {
+  getMovieReviews(id: number): Observable<any> {
     this.loaderService.setLoading(true);
     return this.http.get(`${environment.tmdb.baseUrl}movie/${id}/reviews?api_key=${environment.tmdb.apiKey}`).pipe(
       finalize(() => this.loaderService.setLoading(false))

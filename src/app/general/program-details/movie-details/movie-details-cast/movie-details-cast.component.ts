@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-movie-details-cast',
   templateUrl: './movie-details-cast.component.html',
-  styleUrls: ['./movie-details-cast.component.scss']
+  styleUrls: []
 })
 export class MovieDetailsCastComponent {
 

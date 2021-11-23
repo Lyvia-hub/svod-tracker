@@ -51,9 +51,13 @@ export class MoviesService {
 
   getMovie(id: string): Observable<any> {
     this.loaderService.setLoading(true);
-    return this.http.get(`${environment.tmdb.baseUrl}movie/${id}?api_key=${environment.tmdb.apiKey}`).pipe(
+    return this.http.get(`${environment.tmdb.baseUrl}movie/${id}?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}`).pipe(
       finalize(() => this.loaderService.setLoading(false))
     );
+  }
+
+  getMovieCast(id: string): Observable<any> {
+    return this.http.get(`${environment.tmdb.baseUrl}movie/${id}/credits?api_key=${environment.tmdb.apiKey}&language=fr-CA`);
   }
 
   getMovieReviews(id: string): Observable<any> {

@@ -1,0 +1,169 @@
+.info {
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+}
+
+.info__movies {
+  display: flex;
+  align-items: initial;;
+}
+
+.left {
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+    width: 25%;
+    max-width: 400px;
+    padding-right: 3rem;
+  }
+
+  @media (min-width: 1200px) {
+    padding-right: 5rem;
+  }
+}
+
+.right {
+  @media (min-width: 1024px) {
+    flex: 1;
+  }
+}
+
+.poster {
+  position: relative;
+  height: 0;
+  padding-top: 150.27%;
+  overflow: hidden;
+  background-color: var(--mainRed);
+
+  img,
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.overview {
+  max-width: 1000px;
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  color: #fafafa;
+
+  @media (min-width: 1200px) {
+    font-size: 1.6rem;
+  }
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #fff;
+  letter-spacing: 0.4px;
+
+  @media (min-width: 1200px) {
+    font-size: 2.4rem;
+  }
+}
+
+.stats {
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  color: #fafafa;
+
+  @media (min-width: 1200px) {
+    font-size: 1.6rem;
+  }
+
+  ul {
+    @media (min-width: 1024px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  li {
+    display: flex;
+    padding: 0.2rem 0;
+
+    @media (min-width: 1024px) {
+      width: 50%;
+    }
+
+    @media (min-width: 1400px) {
+      width: 100%;
+    }
+  }
+
+  a {
+    color: var(--mainWhite);
+    text-decoration: underline;
+  }
+}
+
+.label {
+  flex: 1;
+  max-width: 90px;
+  margin-right: 1.5rem;
+  color: #fff;
+
+  @media (min-width: 640px) {
+    max-width: 110px;
+  }
+}
+
+.value {
+  flex: 2;
+}
+
+.external {
+  ul {
+    display: flex;
+    margin-left: -0.5rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.4rem;
+    height: 4.4rem;
+
+    svg {
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      svg {
+        fill: var(--mainWhite);
+      }
+    }
+  }
+}
+
+.comma_ {
+  margin-right: 9px;
+  color: var(--mainBlack);
+
+  &:not(:last-child):after {
+    content: ',';
+  }
+}
+
+.label,
+.value,
+a.genres,
+.overview ,
+h2.title{
+  color: var(--mainBlack);
+}

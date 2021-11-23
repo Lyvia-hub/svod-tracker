@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CarouselModule } from 'primeng/carousel';
+import { TabViewModule } from 'primeng/tabview';
 
 
 
@@ -10,10 +11,12 @@ import { CarouselModule } from 'primeng/carousel';
   declarations: [],
   imports: [
     CommonModule,
-    CarouselModule
+    CarouselModule,
+    TabViewModule
   ],
   exports: [
-    CarouselModule
+    CarouselModule,
+    TabViewModule
   ]
 })
 export class PrimeNgModule { }

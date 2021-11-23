@@ -32,8 +32,16 @@ export class TvShowsService {
     );
   }
 
-  getTVShowById(id: string): Observable<any> {
+  getTVShowById(id: number): Observable<any> {
     return this.http.get(`${environment.tmdb.baseUrl}tv/${id}?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}`);
+  }
+
+  getTvShowsVideos(id: number): Observable<any> {
+    return this.http.get(`${environment.tmdb.baseUrl}tv/${id}/videos?api_key=${environment.tmdb.apiKey}&language=en-US`);
+  }
+
+  gettvShowCredits(id: number): Observable<any> {
+    return this.http.get(`${environment.tmdb.baseUrl}tv/${id}/credits?api_key=${environment.tmdb.apiKey}&language=en-US}`);
   }
 
   getGenres(): Observable<any> {

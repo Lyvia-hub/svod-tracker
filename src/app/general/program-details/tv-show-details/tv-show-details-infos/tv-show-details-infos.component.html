@@ -1,1 +1,83 @@
-<p>tv-show-details-infos works!</p>
+<p-tabView>
+  <p-tabPanel header="Aperçu">
+    <div class="listing-space info__movies">
+
+      <div class="left">
+        <div class="poster">
+          <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ tvShow?.poster_path }}">
+        </div>
+      </div>
+
+      <div class="right">
+
+        <div class="overview">
+          <h2 class="title">Synopsis</h2>
+          <div>{{tvShow?.overview}}</div>
+        </div>
+
+        <div class="stats">
+          <ul class="nolist">
+            <li>
+              <div class="label">Date de première diffusion</div>
+              <div class="value">{{ tvShow?.first_air_date }}</div>
+            </li>
+            <li>
+              <div class="label">Nombre de saisons</div>
+                <div class="value">{{ tvShow?.number_of_seasons }}</div>
+            </li>
+            <li>
+              <div class="label">Nombre d'épisodes</div>
+              <div class="value">{{ tvShow?.seasons[0].episode_count }}</div>
+            </li>
+            <li *ngIf="tvShow?.genres.length">
+              <div class="label">Genre</div>
+              <div class="comma_" *ngFor="let genre of tvShow?.genres">
+                <a routerLink="/genres/{{genre.id}}/{{genre.name}}" class="genres">{{ genre?.name }}</a>
+              </div>
+            </li>
+            <li *ngIf="tvShow?.spoken_languages?.length">
+              <div class="label">Créé par</div>
+              <div class="comma_" *ngFor="let productor of tvShow?.created_by">
+                <a>{{ productor?.name }}</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Vidéos">
+    <div class="listing-space videos__status">
+      <div class="items">
+        <div class="item" *ngFor="let vid of relatedVideo">
+          <div class="link">
+            <div class="image lazyloaded">
+              <img class="lazyload"
+                src="https://img.youtube.com/vi/{{ vid?.key }}/mqdefault.jpg">
+                <button type="button" (click)="showDialog(vid)" class="play__icon btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                    viewBox="0 0 55 55">
+                    <circle cx="27.5" cy="27.5" r="26.75" fill="none" stroke="#fff"
+                      stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                    <path fill="none" stroke="#fff" stroke-linecap="round"                                              stroke-linejoin="round" stroke-width="1.5" d="M20.97 40.81L40.64 27.5 20.97 14.19v26.62z" />
+                  </svg>
+                </button>
+                  </div>
+                  <div class="name">{{ vid?.name }}</div>
+                  <div class="type">{{ vid?.type }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+  </p-tabPanel>
+</p-tabView>
+
+<p-dialog *ngFor="let vid of relatedVideo" header="{{ vid?.name }}" [(visible)]="display" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '900px', height: '600px'}">
+  <!-- <iframe [src]="{{ video }}" width="100%" height="478px" frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen></iframe> -->
+        Lecture de la video {{ vid?.name }}
+</p-dialog>
+<!-- <button type="button" (click)="showDialog(video)" icon="pi pi-info-circle" label="Show"></button> -->

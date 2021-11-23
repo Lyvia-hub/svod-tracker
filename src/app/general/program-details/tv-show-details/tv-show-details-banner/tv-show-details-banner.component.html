@@ -1,1 +1,26 @@
-<p>tv-show-details-banner works!</p>
+<div class="details">
+
+  <div class="backdrop">
+    <img class="lazyload image" src="https://image.tmdb.org/t/p/original/{{ tvShow?.backdrop_path }}" alt="">
+  </div>
+  <div class="pane">
+    <div>
+      <div class="name">{{ tvShow?.name }}</div>
+        <div class="meta">
+          <div class="info">
+            <span class="rate">
+              <i class="material-icons">star</i>
+              <span>{{ tvShow?.vote_average }}</span> /10
+            </span>
+
+            <span>{{ tvShow?.first_air_date | date: 'yyyy' }}</span>
+
+            <span>{{ tvShow?.number_of_seasons }} saison(s)</span>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+</div>
+

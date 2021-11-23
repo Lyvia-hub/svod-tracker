@@ -1,3 +1,9 @@
-<app-tv-show-details-banner></app-tv-show-details-banner>
-<app-tv-show-details-infos></app-tv-show-details-infos>
-<app-tv-show-details-cast></app-tv-show-details-cast>
+<app-tv-show-details-banner [tvShow]="tvShow"></app-tv-show-details-banner>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <app-tv-show-details-infos [tvShow]="tvShow" [video]="video" [relatedVideo]="relatedVideo" [display]="display" (videoDisplayed)="onVideoDisplayed($event)"></app-tv-show-details-infos>
+      <app-tv-show-details-cast [casts]="casts"></app-tv-show-details-cast>
+    </div>
+  </div>
+</div>

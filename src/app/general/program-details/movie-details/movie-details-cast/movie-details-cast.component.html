@@ -1,0 +1,18 @@
+<div class="listing-space">
+  <div class="listing__head">
+    <h2 class="listing__title">Casting</h2>
+  </div>
+  <p-carousel [value]="casts" [numVisible]="6" [numScroll]="4" [circular]="false" [responsiveOptions]="responsiveOptions">
+    <ng-template let-cast pTemplate="item">
+      <div class="listing-item-style">
+        <!-- <div class="overlay">
+          <div class="hover">Details</div>
+        </div> -->
+        <img *ngIf="cast.profile_path"
+          src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{cast?.profile_path}}">
+        <img *ngIf="!cast?.profile_path" src="assets/images/default-movie.png">
+        <h6>{{ cast?.name }}</h6>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>

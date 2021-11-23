@@ -1,0 +1,65 @@
+
+      <p-tabView>
+        <p-tabPanel header="Aperçu">
+          <div class="listing-space info__movies">
+
+          <div class="left">
+            <div class="poster">
+              <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ movie?.poster_path }}">
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="overview">
+              <h2 class="title">Synopsis</h2>
+                <div>{{movie?.overview}}</div>
+            </div>
+
+            <div class="stats">
+              <ul class="nolist">
+                <li>
+                  <div class="label">Date de sortie</div>
+                  <div class="value">{{ movie?.release_date }}
+                  </div>
+                </li>
+                <li>
+                  <div class="label">Durée</div>
+                  <div class="value">{{ movie?.runtime }} min</div>
+                </li>
+                <!-- <li *ngIf="movie?.budget">
+                  <div class="label">Budget</div>
+                  <div class="value">${{ movie?.budget }}</div>
+                </li>
+                <li *ngIf="movie?.revenue">
+                  <div class="label">Revenue</div>
+                  <div class="value">${{ movie?.revenue }}</div>
+                </li> -->
+                <li *ngIf="movie?.genres.length">
+                  <div class="label">Genre</div>
+                  <div class="comma_" *ngFor="let genre of movie?.genres">
+                    <a routerLink="/genres/{{genre.id}}/{{genre.name}}" class="genres">{{ genre?.name }}</a>
+                  </div>
+                </li>
+                <li *ngIf="movie?.status">
+                  <div class="label">Status</div>
+                  <div class="value">{{movie?.status}}</div>
+                </li>
+                <li *ngIf="movie?.spoken_languages?.length">
+                  <div class="label">Langages</div>
+                  <div class="comma_" *ngFor="let language of movie?.spoken_languages">
+                    <a>{{ language?.name }}</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          </div>
+        </p-tabPanel>
+
+        <p-tabPanel header="Vidéos"></p-tabPanel>
+      </p-tabView>
+
+
+
+

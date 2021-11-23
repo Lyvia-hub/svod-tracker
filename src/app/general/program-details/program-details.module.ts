@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MovieDetailsRoutingModule } from './movie-details/movie-details-routing.module';
+import { TvShowDetailsModule } from './tv-show-details/tv-show-details.module';
 
 
 @NgModule({
@@ -8,7 +9,8 @@ import { MovieDetailsRoutingModule } from './movie-details/movie-details-routing
   ],
   imports: [
     SharedModule,
-    MovieDetailsRoutingModule
+    MovieDetailsRoutingModule,
+    TvShowDetailsModule
   ]
 })
 export class ProgramDetailsModule { }

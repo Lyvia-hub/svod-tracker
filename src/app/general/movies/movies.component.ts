@@ -24,8 +24,8 @@ export class MoviesComponent implements OnInit {
     this.moviesService.getPopular(page).pipe(delay(2000)).subscribe((res: any) => {
       this.popular = res.results;
       this.totalResults = res.total_results;
-      // this.loader = false;
     },
+      // à remplacer par une alerte
       error => console.log(error));
   }
 

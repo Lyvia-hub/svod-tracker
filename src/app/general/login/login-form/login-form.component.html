@@ -29,7 +29,6 @@
     </div>
 
     <!-- le champ du mot de passe. -->
-
     <div class="form-group">
       <label for="password"><span class="material-icons material-icons-pwd zmdi">lock</span></label>
         <input
@@ -53,7 +52,7 @@
         </small>
     </div>
 
-    <!-- A ajouter : le bouton pour soumettre le formulaire. -->
+    <!-- Le bouton pour soumettre le formulaire. -->
     <p class="text-center py-3">
       <button type="submit" class="btn" [disabled]="!loginForm.valid" [ngClass]="{'btn-outline-danger':loginForm.valid, 'btn-default':!loginForm.valid}">Connexion
       </button>

@@ -37,7 +37,6 @@ export class TvShowDetailsComponent implements OnInit {
     this.tvShowsService.getTVShowById(id).subscribe(
       (res: any) => {
         this.tvShow = res;
-        console.log("La série est : ", this.tvShow);
       });
   }
 
@@ -47,8 +46,6 @@ export class TvShowDetailsComponent implements OnInit {
         if (res.results.length) {
           this.video = res.results[0];
           this.relatedVideo = res.results;
-          console.log(this.video);
-          console.log(this.relatedVideo);
         }
       });
   }

@@ -55,8 +55,6 @@ export class HomeFeaturesComponent implements OnInit {
     this.moviesService.getNowPlaying(page).pipe(
       delay(2000))
       .subscribe((res: any) => {
-        console.log(res);
-        console.log(res.results)
         this.movieNowPlaying = res.results;
       });
   }
@@ -65,8 +63,6 @@ export class HomeFeaturesComponent implements OnInit {
     this.tvShowsService.getPopularTVShow(page).pipe(
       delay(2000)).subscribe(
         (res: any) => {
-          console.log(res);
-          console.log(res.results)
           this.tvShow = res.results
         });
   }

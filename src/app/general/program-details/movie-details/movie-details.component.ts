@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
 import { MoviesService } from 'src/app/core/services/movies.service';
 
 @Component({
@@ -23,8 +22,7 @@ export class MovieDetailsComponent implements OnInit {
 
   constructor(
     private moviesService: MoviesService,
-    private activatedRoute: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -40,15 +38,11 @@ export class MovieDetailsComponent implements OnInit {
 
   getMovieDetails(id: any) {
     this.moviesService.getMovie(id).subscribe((res: any) => {
-      this.movie = res;
-      console.log(res);
     });
   }
 
   getMovieCast(id: any) {
     this.moviesService.getMovieCast(id).subscribe((res: any) => {
-      this.casts = res.cast;
-      console.log(res.cast);
     });
   }
 
@@ -63,7 +57,7 @@ export class MovieDetailsComponent implements OnInit {
 
   onVideoDisplayed(video: any): void {
     this.display = true;
-    // this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + video.key + this.autoplay);
+    // Bug en cours de résolution
     console.log('Ouvrir boite de dialogue pour afficher la vidéo', video);
     console.log(this.display);
   }

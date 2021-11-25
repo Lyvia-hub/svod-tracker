@@ -28,23 +28,22 @@ export class TvShowsComponent implements OnInit {
         (res: any) => {
           this.popular = res.results;
           this.totalResults = res.total_results;
-          console.log(this.popular);
           //Gérer le loader
         },
+        // Remplacer par une alerte
         error => console.log(error)
       );
   }
 
   searchTvShows(page: number) {
-    console.log("le sujet de la recherche est :" + this.searchTerm);
     this.tvShowsService.searchtvShows(this.searchTerm, page).subscribe(
       res => {
         this.searchResult = res.results;
 
         if (res.total_results === 0) {
+          // Remplacer par un message dans le fichier HTML ou une alerte
           console.log("Aucun résultat à afficher");
         }
-        console.log(res);
       }
     );
   }

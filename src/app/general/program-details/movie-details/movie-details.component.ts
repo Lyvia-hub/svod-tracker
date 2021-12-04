@@ -38,11 +38,13 @@ export class MovieDetailsComponent implements OnInit {
 
   getMovieDetails(id: any) {
     this.moviesService.getMovie(id).subscribe((res: any) => {
+      this.movie = res;
     });
   }
 
   getMovieCast(id: any) {
     this.moviesService.getMovieCast(id).subscribe((res: any) => {
+      this.casts = res.cast;
     });
   }
 

@@ -15,24 +15,117 @@ describe('User', () => {
       hasDisney: true
     };
   })
+
   it('should create an instance', () => {
-    expect(new User('1', 'untel', 'john.doe@gmail.com', 'jfkdhfjghf', 'bdfhfgyerfk', true, false, true)).toBeTruthy();
-  });
+    expect(new User(
+      {
+        id: '1',
+        name: 'john',
+        email: 'john.doe@gmail.com',
+        password: 'jfkdhfjghf',
+        avatar: 'bdfhfgyerfk',
+        hasNetflix: true,
+        hasAmazon: true,
+        hasDisney: true
+      })).toBeTruthy();
+  })
+
 
   it('should create an instance with no properties', () => {
     expect(new User()).toBeTruthy();
-    expect(new User()).toEqual(new User(undefined, '', '', '', '', false, false, false));
+    expect(new User()).toEqual(new User({
+      id: undefined,
+      name: '',
+      email: '',
+      password: '',
+      avatar: '',
+      hasNetflix: false,
+      hasAmazon: false,
+      hasDisney: false
+    }));
   });
 
   it('should contain object keys', () => {
-    expect(Object.keys(new User('1', 'untel', 'john.doe@gmail.com', 'jfkdhfjghf', 'bdfhfgyerfk', true, false, true))).toContain('id');
-    expect(Object.keys(new User('', 'untel', 'john.doe@gmail.com', 'jfkdhfjghf', 'bdfhfgyerfk', true, false, true))).toContain('name');
-    expect(Object.keys(new User('3', 'untel', 'john.doe@gmail.com', 'jfkdhfjghf', 'bdfhfgyerfk', true, false, true))).toContain('password');
-    expect(Object.keys(new User('4', 'untel', 'john.doe@gmail.com', 'jfkdhfjghf', 'bdfhfgyerfk', true, false, true))).toContain('avatar');
-    expect(Object.keys(new User('5', 'untel', 'john.doe@gmail.com', 'jfkdhfjghf', 'bdfhfgyerfk', true, false, true))).toContain('hasNetflix');
-    expect(Object.keys(new User('6', 'untel', 'john.doe@gmail.com', 'jfkdhfjghf', 'bdfhfgyerfk', true, false, true))).toContain('hasAmazon');
-    expect(Object.keys(new User('7', 'untel', 'john.doe@gmail.com', 'jfkdhfjghf', 'bdfhfgyerfk', true, false, true))).toContain('hasDisney');
-    expect(Object.keys(new User('john.doe@gmail.com'))).toContain('hasDisney');
+    expect(Object.keys(new User({
+      id: undefined,
+      name: '',
+      email: '',
+      password: '',
+      avatar: '',
+      hasNetflix: false,
+      hasAmazon: false,
+      hasDisney: false
+    }))).toContain('id');
+    expect(Object.keys(new User({
+      id: undefined,
+      name: '',
+      email: '',
+      password: '',
+      avatar: '',
+      hasNetflix: false,
+      hasAmazon: false,
+      hasDisney: false
+    }))).toContain('name');
+    expect(Object.keys(new User({
+      id: undefined,
+      name: '',
+      email: '',
+      password: '',
+      avatar: '',
+      hasNetflix: false,
+      hasAmazon: false,
+      hasDisney: false
+    }))).toContain('password');
+    expect(Object.keys(new User({
+      id: undefined,
+      name: '',
+      email: '',
+      password: '',
+      avatar: '',
+      hasNetflix: false,
+      hasAmazon: false,
+      hasDisney: false
+    }))).toContain('avatar');
+    expect(Object.keys(new User({
+      id: undefined,
+      name: '',
+      email: '',
+      password: '',
+      avatar: '',
+      hasNetflix: false,
+      hasAmazon: false,
+      hasDisney: false
+    }))).toContain('hasNetflix');
+    expect(Object.keys(new User({
+      id: undefined,
+      name: '',
+      email: '',
+      password: '',
+      avatar: '',
+      hasNetflix: false,
+      hasAmazon: false,
+      hasDisney: false
+    }))).toContain('hasAmazon');
+    expect(Object.keys(new User({
+      id: undefined,
+      name: '',
+      email: '',
+      password: '',
+      avatar: '',
+      hasNetflix: false,
+      hasAmazon: false,
+      hasDisney: false
+    }))).toContain('hasDisney');
+    expect(Object.keys(new User({
+      id: undefined,
+      name: '',
+      email: '',
+      password: '',
+      avatar: '',
+      hasNetflix: false,
+      hasAmazon: false,
+      hasDisney: false
+    }))).toContain('hasDisney');
   });
 
 

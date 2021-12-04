@@ -23,10 +23,12 @@
         </div>
         <img
           *ngIf="movie?.poster_path"
-          src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movie?.poster_path}}">
+          src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movie?.poster_path}}"
+          [alt]="movie.title ? movie.title : movie.name">
         <img
           *ngIf="!movie?.poster_path"
-          src="../../../../assets//images/default-movie.png">
+          src="../../../../assets//images/default-movie.png"
+          [alt]="movie.title ? movie.title : movie.name">
         <h6>{{ movie?.title }}</h6>
         <p class="rate">
           <i class="material-icons">star</i>
@@ -65,7 +67,7 @@
               <i class="material-icons">manage_search</i> Description
             </div>
           </div>
-          <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{tv?.poster_path}}">
+          <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{tv?.poster_path}}" [alt]="tv.title ? tv.title : tv.name">
           <h6>{{ tv?.original_name }}</h6>
           <p class="rate">
             <i class="material-icons">star</i>

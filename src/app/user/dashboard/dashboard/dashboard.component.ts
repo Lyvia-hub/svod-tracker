@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LayoutService } from 'src/app/core/services/layout.service';
 
 @Component({
@@ -6,12 +6,9 @@ import { LayoutService } from 'src/app/core/services/layout.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
   constructor(private layoutService: LayoutService) { }
-
-  ngOnInit(): void {
-  }
 
   toggleSidenav() {
     this.layoutService.toggleSidenav();

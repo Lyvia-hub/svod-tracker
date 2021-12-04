@@ -9,8 +9,8 @@
           <div class="hover">Details</div>
         </div> -->
         <img *ngIf="cast.profile_path"
-          src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{cast?.profile_path}}">
-        <img *ngIf="!cast?.profile_path" src="assets/images/default-movie.png">
+          src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{cast?.profile_path}}" [alt]="cast.name? cast.name:cast.original_name">
+        <img *ngIf="!cast?.profile_path" src="assets/images/default-movie.png" [alt]="cast.name? cast.name:cast.original_name">
         <h6>{{ cast?.name }}</h6>
       </div>
     </ng-template>

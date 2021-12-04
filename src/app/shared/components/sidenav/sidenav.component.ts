@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LayoutService } from 'src/app/core/services/layout.service';
@@ -8,7 +8,7 @@ import { LayoutService } from 'src/app/core/services/layout.service';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent {
 
   dashboardPath: string = 'user/dashboard';
   profilPath: string = 'user/profil';
@@ -16,8 +16,6 @@ export class SidenavComponent implements OnInit {
   constructor(
     private router: Router,
     private layoutService: LayoutService) { }
-
-  ngOnInit() { }
 
   public navigate(page: string): void {
     this.router.navigate([page]);

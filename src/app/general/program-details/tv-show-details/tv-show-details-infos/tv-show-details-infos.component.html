@@ -4,7 +4,7 @@
 
       <div class="left">
         <div class="poster">
-          <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ tvShow?.poster_path }}">
+          <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ tvShow?.poster_path }}" [alt]="tvShow?.name">
         </div>
       </div>
 
@@ -55,7 +55,7 @@
           <div class="link">
             <div class="image lazyloaded">
               <img class="lazyload"
-                src="https://img.youtube.com/vi/{{ vid?.key }}/mqdefault.jpg">
+                src="https://img.youtube.com/vi/{{ vid?.key }}/mqdefault.jpg" [alt]="">
                 <button type="button" (click)="showDialog(vid)" class="play__icon btn">
                   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
                     viewBox="0 0 55 55">

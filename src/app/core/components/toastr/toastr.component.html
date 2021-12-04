@@ -14,16 +14,16 @@
   *ngIf="(toastr$ | async) as toastr"
   class="alert d-flex align-items-center"
   role="alert"
-  [ngClass]="{'alert-success': toastr.category=='success', 'alert-danger':toastr.category=='danger','alert-warning':toastr.category=='warning', 'alert-info':toastr.category=='info'}"
+  [ngClass]="{'alert-success': toastr.category==='success', 'alert-danger':toastr.category==='danger','alert-warning':toastr.category==='warning', 'alert-info':toastr.category==='info'}"
   (click)="closeToastr()">
 
-  <svg *ngIf="toastr.category=='success'" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+  <svg *ngIf="toastr.category==='success'" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
 
-  <svg *ngIf="toastr.category=='info'" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+  <svg *ngIf="toastr.category==='info'" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
 
-  <svg *ngIf="toastr.category=='warning'" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+  <svg *ngIf="toastr.category==='warning'" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
 
-  <svg *ngIf="toastr.category=='danger'" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+  <svg *ngIf="toastr.category==='danger'" class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
   <div>
     {{toastr.message}}
   </div>

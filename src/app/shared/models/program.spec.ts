@@ -2,21 +2,8 @@ import { Program } from './program';
 
 describe('Program', () => {
 
-  let homeland: {};
-
   beforeEach(function () {
-    homeland = {
-      id: '1',
-      name: 'Homeland',
-      type: 'serie',
-      genre: ['Crime', 'Drama', 'Mystery'],
-      numberOfSeasons: 4,
-      actors: ['Claire Danes', 'Mandy Patinkin', ' Damian Lewis'],
-      synopsis: 'A bipolar CIA operative becomes convinced a prisoner of war has been turned by al-Qaeda and is planning to carry out a terrorist attack on American soil',
-      releaseDate: '2011',
-      platform: 'Netflix',
-      Rate: 9.5
-    };
+
   })
 
   it('should create an instance', () => {

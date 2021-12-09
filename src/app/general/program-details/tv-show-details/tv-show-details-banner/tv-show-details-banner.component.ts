@@ -9,8 +9,4 @@ export class TvShowDetailsBannerComponent {
 
   @Input() tvShow: any;
 
-  constructor() { }
-
-
-
 }

@@ -6,8 +6,6 @@ describe('PageNotFoundComponent', () => {
   let component: PageNotFoundComponent;
   let fixture: ComponentFixture<PageNotFoundComponent>;
 
-  let locationSpy: any;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PageNotFoundComponent],
@@ -22,8 +20,6 @@ describe('PageNotFoundComponent', () => {
     fixture = TestBed.createComponent(PageNotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
-    locationSpy = jasmine.createSpyObj("Location", ["back"]);
 
   });
 

@@ -5,12 +5,13 @@ import { ToastrService } from './toastr.service';
 
 describe('ErrorService', () => {
   let service: ErrorService;
+  let toastrSpy: any;
+
   let error = {
     error: {
       error: { message: "error message details" }
     }
   };
-  let toastrSpy: any;
 
   beforeEach(() => {
     toastrSpy = jasmine.createSpyObj('ToastrService', ['showToastr']);
@@ -32,14 +33,13 @@ describe('ErrorService', () => {
     pending();
   });
 
-  it('should display an error', () => {
-    /*const errorDisplayed = service.handleError(error);
+  xit('should display an error', () => {
+    const errorDisplayed = service.handleError(error);
 
     let errorMessage = {
       category: 'danger',
       message: error.error.error.message
     };
-    expect(errorDisplayed).toThrowError("error details message");*/
-    pending();
+    expect(errorDisplayed).toThrowError("error details message");
   });
 });

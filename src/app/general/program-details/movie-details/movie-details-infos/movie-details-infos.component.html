@@ -25,14 +25,6 @@
                   <div class="label">Durée</div>
                   <div class="value">{{ movie?.runtime }} min</div>
                 </li>
-                <!-- <li *ngIf="movie?.budget">
-                  <div class="label">Budget</div>
-                  <div class="value">${{ movie?.budget }}</div>
-                </li>
-                <li *ngIf="movie?.revenue">
-                  <div class="label">Revenue</div>
-                  <div class="value">${{ movie?.revenue }}</div>
-                </li> -->
                 <li *ngIf="movie?.genres.length">
                   <div class="label">Genre</div>
                   <div class="comma_" *ngFor="let genre of movie?.genres">
@@ -61,7 +53,6 @@
             <div class="items">
               <div class="item" *ngFor="let vid of relatedVideo">
                 <div class="link">
-                <!-- <div (click)="showDialog(vid)" class="link"> -->
                   <div class="image lazyloaded">
                     <img class="lazyload"
                       src="https://img.youtube.com/vi/{{ vid?.key }}/mqdefault.jpg"
@@ -74,14 +65,6 @@
                         <path fill="none" stroke="#fff" stroke-linecap="round"                                           stroke-linejoin="round" stroke-width="1.5" d="M20.97 40.81L40.64 27.5 20.97 14.19v26.62z" />
                       </svg>
                     </button>
-                    <!-- <div class="play__icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-                        viewBox="0 0 55 55">
-                        <circle cx="27.5" cy="27.5" r="26.75" fill="none" stroke="#fff"
-                          stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
-                        <path fill="none" stroke="#fff" stroke-linecap="round"                                           stroke-linejoin="round" stroke-width="1.5" d="M20.97 40.81L40.64 27.5 20.97 14.19v26.62z" />
-                      </svg>
-                    </div> -->
                   </div>
                   <div class="name">{{ vid?.name }}</div>
                   <div class="type">{{ vid?.type }}</div>

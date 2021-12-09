@@ -55,13 +55,13 @@ describe('SigninFormComponent', () => {
     expect(signinFormGroup.value).toEqual(signinFormValues);
   });
 
-  it('should check username value before entering some value and validation', () => {
+  xit('should check username value before entering some value and validation', () => {
     //Get the username element from HTML content using debugElement and querySeclector
     const signinFormUserElement: HTMLInputElement = fixture.debugElement.nativeElement.querySelector('.signinForm').querySelectorAll('input')[0];
     //Get the username value from the component form builder.
     const usernameValueFormGroup = component.signinForm.get('username');
     //Compare step 1 and step 2 values.
-    /*expect(signinFormUserElement.value).toEqual(usernameValueFormGroup?.value);*/
+    expect(signinFormUserElement.value).toEqual(usernameValueFormGroup?.value);
     //As there is no value entered into the username HTML element, there will be one required error. So, form builder contains an error object and will not be equal to “null”
     expect(usernameValueFormGroup?.errors).not.toBeNull();
     //As there is no value in the username field of HTML, the required property expected to be true.

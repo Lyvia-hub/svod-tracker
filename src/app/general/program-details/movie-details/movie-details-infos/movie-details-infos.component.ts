@@ -14,8 +14,6 @@ export class MovieDetailsInfosComponent {
 
   @Output() videoDisplayed = new EventEmitter<any>();
 
-  constructor() { }
-
   showDialog(video: any) {
     this.videoDisplayed.emit(video);
   }

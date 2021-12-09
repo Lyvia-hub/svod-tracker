@@ -31,8 +31,7 @@ describe('LoaderComponent', () => {
   });
 
   it('should show loading indicator if the page is not loaded', () => {
-    // const spinner = spyOn(TestBed.inject(NgxSpinnerService), "show");
-    // expect(spinner).toHaveBeenCalled();
+    pending();
   });
 
 

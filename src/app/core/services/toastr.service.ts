@@ -14,8 +14,6 @@ export class ToastrService {
   //Observable: affiche le toastr ou rien
   readonly toastr$: Observable<Toastr | null> = this.toastr.asObservable();
 
-  constructor() { }
-
   showToastr(toastr: Toastr): void {
     timer(0, 5000).pipe(take(2)).subscribe(i => {
       if (i === 0) {

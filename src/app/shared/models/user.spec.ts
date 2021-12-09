@@ -1,19 +1,9 @@
 import { User } from './user';
 
 describe('User', () => {
-  let johnDoe: {};
 
   beforeEach(function () {
-    johnDoe = {
-      id: '1',
-      name: 'John Doe',
-      email: 'john.doe@gmail.com',
-      password: 'ndjfhjfurrg',
-      avatar: 'https://static.vecteezy.com/ti/vecteur-libre/p1/2002247-belle-femme-noire-avatar-icone-personnage-gratuit-vectoriel.jpg',
-      hasNetflix: true,
-      hasAmazon: true,
-      hasDisney: true
-    };
+
   })
 
   it('should create an instance', () => {

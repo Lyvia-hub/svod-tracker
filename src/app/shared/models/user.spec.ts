@@ -2,10 +2,6 @@ import { User } from './user';
 
 describe('User', () => {
 
-  beforeEach(function () {
-
-  })
-
   it('should create an instance', () => {
     expect(new User(
       {

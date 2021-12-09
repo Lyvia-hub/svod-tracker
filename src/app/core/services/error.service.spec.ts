@@ -36,10 +36,6 @@ describe('ErrorService', () => {
   xit('should display an error', () => {
     const errorDisplayed = service.handleError(error);
 
-    let errorMessage = {
-      category: 'danger',
-      message: error.error.error.message
-    };
     expect(errorDisplayed).toThrowError("error details message");
   });
 });

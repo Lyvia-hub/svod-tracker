@@ -1,4 +1,4 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { TvShowsService } from './tv-shows.service';
@@ -8,6 +8,8 @@ describe('TvShowsService', () => {
   let service: TvShowsService;
   let httpTestingController: HttpTestingController;
   let page: number = 2;
+  let url: string;
+  let id: number;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -99,7 +101,7 @@ describe('TvShowsService', () => {
   });
 
   it('should give tv show videos', () => {
-    let id: number = 88329;
+    id = 88329;
     service.getTvShowsVideos(id).subscribe(
       videos => {
         expect(videos).toBeTruthy();

@@ -2,10 +2,6 @@ import { Program } from './program';
 
 describe('Program', () => {
 
-  beforeEach(function () {
-
-  })
-
   it('should create an instance', () => {
     expect(new Program('1', 'Homeland', 'serie', ['Crime', 'Drama', 'Mystery'], 4, ['Claire Danes', 'Mandy Patinkin', ' Damian Lewis'], 'A bipolar CIA operative becomes convinced a prisoner of war has been turned by al-Qaeda and is planning to carry out a terrorist attack on American soil', '2011', 'Netflix', 9.5)).toBeTruthy();
   });

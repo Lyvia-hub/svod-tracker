@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LoaderService } from './loader.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,35 +9,22 @@ import { LoaderService } from './loader.service';
 export class MoviesService {
 
   constructor(
-    private http: HttpClient,
-    private loaderService: LoaderService) { }
+    private http: HttpClient) { }
 
   getPopular(page: number): Observable<any> {
-    this.loaderService.setLoading(true);
-    return this.http.get(`${environment.tmdb.baseUrl}movie/popular?api_key=${environment.tmdb.apiKey}&page=${page}&language=${environment.tmdb.language}&region=${environment.tmdb.region}`).pipe(
-      finalize(() => this.loaderService.setLoading(false))
-    );
+    return this.http.get(`${environment.tmdb.baseUrl}movie/popular?api_key=${environment.tmdb.apiKey}&page=${page}&language=${environment.tmdb.language}&region=${environment.tmdb.region}`);
   }
 
   getNowPlaying(page: number): Observable<any> {
-    this.loaderService.setLoading(true);
-    return this.http.get(`${environment.tmdb.baseUrl}movie/now_playing?api_key=${environment.tmdb.apiKey}&page=${page}&language=${environment.tmdb.language}&region=${environment.tmdb.region}`).pipe(
-      finalize(() => this.loaderService.setLoading(false))
-    );
-  }
-
-  getTopRatedMovies(page: number): Observable<any> {
-    this.loaderService.setLoading(true);
-    return this.http.get(`${environment.tmdb.baseUrl}movie/top_rated?api_key=${environment.tmdb.apiKey}&page=${page}&language=${environment.tmdb.language}`).pipe(
-      finalize(() => this.loaderService.setLoading(false))
-    );
+    return this.http.get(`${environment.tmdb.baseUrl}movie/now_playing?api_key=${environment.tmdb.apiKey}&page=${page}&language=${environment.tmdb.language}&region=${environment.tmdb.region}`);
   }
 
   getMovie(id: number): Observable<any> {
-    this.loaderService.setLoading(true);
-    return this.http.get(`${environment.tmdb.baseUrl}movie/${id}?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}`).pipe(
-      finalize(() => this.loaderService.setLoading(false))
-    );
+    return this.http.get(`${environment.tmdb.baseUrl}movie/${id}?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}`);
+  }
+
+  searchMovies(searchTerm: string): Observable<any> {
+    return this.http.get(`${environment.tmdb.baseUrl}search/movie?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}&page=1&include_adult=false&query=${searchTerm}`);
   }
 
   getMovieCast(id: number): Observable<any> {
@@ -49,39 +34,5 @@ export class MoviesService {
   getMovieVideos(id: number): Observable<any> {
     return this.http.get(`${environment.tmdb.baseUrl}movie/${id}/videos?api_key=${environment.tmdb.apiKey}&language=en-US`)
   }
-
-  getGenres(): Observable<any> {
-    this.loaderService.setLoading(true);
-    return this.http.get(`${environment.tmdb.baseUrl}genre/movie/list?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}`).pipe(
-      finalize(() => this.loaderService.setLoading(false))
-    );
-  }
-
-  getMoviesByGenre(id: number): Observable<any> {
-    this.loaderService.setLoading(true);
-    return this.http.get(`${environment.tmdb.baseUrl}genre/${id}/movies?api_key=${environment.tmdb.apiKey}`).pipe(
-      finalize(() => this.loaderService.setLoading(false))
-    );
-  }
-
-  getMovieReviews(id: number): Observable<any> {
-    this.loaderService.setLoading(true);
-    return this.http.get(`${environment.tmdb.baseUrl}movie/${id}/reviews?api_key=${environment.tmdb.apiKey}`).pipe(
-      finalize(() => this.loaderService.setLoading(false))
-    );
-  }
-
-  getMoviesProviders(): Observable<any> {
-    return this.http.get(`${environment.tmdb.baseUrl}watch/providers/movie?api_key=${environment.tmdb.apiKey}&language=en-US`);
-  }
-
-  searchMovies(searchTerm: string): Observable<any> {
-    this.loaderService.setLoading(true);
-    return this.http.get(`${environment.tmdb.baseUrl}search/movie?api_key=${environment.tmdb.apiKey}&language=${environment.tmdb.language}&page=1&include_adult=false&query=${searchTerm}`).pipe(
-      finalize(() => this.loaderService.setLoading(false))
-    );
-
-  }
-
 
 }

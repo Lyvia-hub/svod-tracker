@@ -10,7 +10,7 @@ export class ErrorService {
   constructor(private toastrService: ToastrService) { }
 
   handleError(error: any) {
-    // Appelle le service toastr pour afficher
+    // Appelle le service toastr pour afficher l'alerte
     this.toastrService.showToastr({
       category: 'danger',
       message: error.error.error.message

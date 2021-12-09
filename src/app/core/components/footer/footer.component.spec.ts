@@ -8,9 +8,9 @@ describe('FooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      declarations: [FooterComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +21,10 @@ describe('FooterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display the text "SVOD Tracker - Developed by Lyv-Bee"', () => {
+    const text = fixture.debugElement.nativeElement;
+    expect(text.querySelector('footer').textContent).toContain('SVOD Tracker - Developed by Lyv-Bee');
   });
 });

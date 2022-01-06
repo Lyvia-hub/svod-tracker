@@ -55,8 +55,13 @@
           <span class="material-icons text-color-white md-24 align-middle">house</span>
         </a>
       </li>
+      <!-- Identification utilisateur -->
       <li class="nav-item">
         <a class="connectedUser">Connecté.e en tant que : {{user?.name}}</a>
+      </li>
+      <!-- Redirection vers espace personnel -->
+      <li class="nav-item" [class.active]=isActive(moviesPath)>
+        <a class="nav-link" (click)=navigate(dashboardPath)>Espace personnel</a>
       </li>
       <!-- Films -->
         <li class="nav-item" [class.active]=isActive(moviesPath)>

@@ -1,5 +1,170 @@
-<button type="button" id="sidebarCollapse" class="btn" (click)="toggleSidenav()">
+<!-- <button type="button" id="sidebarCollapse" class="btn" (click)="toggleSidenav()">
   <span class="material-icons">menu</span>
-</button>
-
+</button> -->
 <h1 class="text-center">Tableau de bord</h1>
+
+<!-- tableau de tri -->
+<div class="container dragdrop">
+  <div class="row">
+    <p-pickList [source]="sourceProducts" [target]="targetProducts" sourceHeader="A voir" targetHeader="Vus" [dragdrop]="true"
+    [responsive]="true" [sourceStyle]="{'height':'30rem'}" [targetStyle]="{'height':'30rem'}" filterBy="name"
+    sourceFilterPlaceholder="Chercher un titre" targetFilterPlaceholder="Chercher un titre">
+    <ng-template let-product pTemplate="item">
+        <div class="product-item">
+            <div class="image-container">
+                    <img src="assets/showcase/images/demo/product/{{product.image}}" [alt]="product.name" class="product-image" />
+            </div>
+            <div class="product-list-detail">
+                <h5 class="p-mb-2">{{product.name}}</h5>
+                <i class="pi pi-tag product-category-icon"></i>
+                <span class="product-category">{{product.category}}</span>
+            </div>
+            <div class="product-list-action">
+                <h6 class="p-mb-2">${{product.price}}</h6>
+                <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+            </div>
+        </div>
+    </ng-template>
+</p-pickList>
+
+  </div>
+</div>
+
+<!-- Bouton pour faire apparaître/disparaître le formulaire d'ajout -->
+<div class="toggleBtn">
+  <button type="button" class="au-btn addProgram" (click)="toggleForm()">
+  <span class="material-icons-outlined">{{ btnIcon }}</span>
+  {{ btnText }}
+</button>
+</div>
+
+<!-- Formulaire d'ajout de programmes -->
+<div *ngIf="isDisplay" class="container">
+  <div class="row">
+    <form>
+      <!-- Type de programme: série ou film -->
+      <div class="row">
+        <div class="col-half">
+          <h4>Type de programme</h4>
+          <div class="input-group">
+            <input id="type-movie" type="radio" name="type" value="film" />
+            <label for="type-movie">Film</label>
+            <input id="type-tvShow" type="radio" name="type" value="tvShow" />
+            <label for="type-tvShow">Série</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Informations concernant le programme -->
+      <div class="row">
+        <h4>Informations</h4>
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="Titre du programme" />
+          <div class="input-icon">
+            <span class="material-icons-outlined">movie</span>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="Plateforme de visionnage" />
+          <div class="input-icon">
+            <span class="material-icons-outlined">live_tv</span>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="Genre(s)" />
+            <div class="input-icon">
+              <span class="material-icons-outlined">theater_comedy
+              </span>
+            </div>
+        </div>
+
+        <div class="input-group input-group-icon">
+          <textarea name="" id="" cols="30" rows="10" placeholder="Synopsis"></textarea>
+        </div>
+      </div>
+
+      <!-- Date de sortie -->
+      <div class="row">
+      <h4>Date de sortie</h4>
+      <div class="input-group input-group-icon">
+        <p-calendar
+          dateFormat="dd/mm/yy"
+          [monthNavigator]="true"
+          [yearNavigator]="true"
+          yearRange="2000:2030" placeholder="Date de sortie"></p-calendar>
+        </div>
+      </div>
+
+      <div class="row">
+      <div class="col-half">
+        <h4>A voir/Vu</h4>
+        <div class="input-group">
+          <input id="seen" type="radio" name="categorie" value="Visionne" />
+          <label for="seen">Visionné</label>
+          <input id="must-see" type="radio" name="categorie" value="Avoir" />
+          <label for="must-see">A voir</label>
+        </div>
+      </div>
+      <div class="col-half">
+        <h4>Date de visionnage</h4>
+        <div class="input-group input-group-icon">
+        <p-calendar
+          dateFormat="dd/mm/yy"
+          [monthNavigator]="true"
+          [yearNavigator]="true"
+          yearRange="2000:2030" placeholder="Date de visionnage">
+        </p-calendar>
+        </div>
+      </div>
+      </div>
+
+      <!-- <div class="row">
+      <h4>Payment Details</h4>
+        <div class="input-group">
+          <input id="payment-method-card" type="radio" name="payment-method" value="card" checked="true" />
+          <label for="payment-method-card">
+            <span>
+              <i class="fa fa-cc-visa"></i>Credit Card
+            </span>
+          </label>
+          <input id="payment-method-paypal" type="radio" name="payment-method" value="paypal" />
+          <label for="payment-method-paypal">
+            <span>
+              <i class="fa fa-cc-paypal"></i>Paypal
+            </span>
+          </label>
+        </div>
+        <div class="input-group input-group-icon"><input type="text" placeholder="Card Number" />
+            <div class="input-icon"><i class="fa fa-credit-card"></i></div>
+        </div>
+        <div class="col-half">
+            <div class="input-group input-group-icon"><input type="text" placeholder="Card CVC" />
+                <div class="input-icon"><i class="fa fa-user"></i></div>
+            </div>
+        </div>
+        <div class="col-half">
+          <div class="input-group">
+            <select>
+              <option>01 Jan</option>
+              <option>02 Jan</option>
+            </select>
+            <select>
+              <option>2015</option>
+              <option>2016</option>
+            </select>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Bouton de sauvegarde -->
+      <button type="submit" class="au-btn saveProgram">
+        <span class="material-icons">post_add
+        </span>
+        Sauvegarder
+      </button>
+    </form>
+  </div>
+</div>
+
+
+

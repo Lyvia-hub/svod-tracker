@@ -1,0 +1,116 @@
+<div class="container">
+<form
+  novalidate
+  [formGroup]="addProgramForm"
+  (ngSubmit)="submit()"
+  class="card-body">
+
+  <!-- Type de programme: série ou film -->
+  <div class="form-group">
+    <div class="row">
+      <div class="col-half">
+        <h4>Type de programme</h4>
+        <div class="input-group">
+          <input id="type-movie" type="radio" name="type" value="film" formControlName="type" required/>
+          <label for="type-movie">Film</label>
+          <input id="type-tvShow" type="radio" name="type" value="tvShow" formControlName="type" required/>
+          <label for="type-tvShow">Série</label>
+        </div>
+        <small *ngIf="type && type.errors && type.dirty" class="form-text text-muted">
+          <span [hidden]="!type.errors.required">
+            Veuillez sélectionner le type du programme.
+          </span>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Informations concernant le programme -->
+  <div class="row">
+    <h4>Informations</h4>
+    <div class="input-group input-group-icon">
+      <input id="title" type="text" formControlName="title" class="form-control" placeholder="Titre du programme" autocomplete="off" autocorrect="off" required/>
+      <div class="input-icon">
+        <span class="material-icons-outlined">movie</span>
+      </div>
+      <small *ngIf="title && title.errors && title.dirty" class="form-text text-muted">
+          <span [hidden]="!title.errors.required">
+            Le titre du programme est requis.
+          </span>
+        </small>
+    </div>
+
+    <div class="input-group input-group-icon">
+      <input id="platform" name="platform" type="text" formControlName="platform" class="form-control" placeholder="Plateforme de visionnage" autocomplete="off" autocorrect="off" />
+      <div class="input-icon">
+        <span class="material-icons-outlined">live_tv</span>
+      </div>
+    </div>
+
+    <div class="input-group input-group-icon">
+      <input id="genres" name="genre" type="text" formControlName="genres" class="form-control" placeholder="Genre(s)" autocomplete="off" autocorrect="off" />
+      <div class="input-icon">
+        <span class="material-icons-outlined">theater_comedy</span>
+      </div>
+    </div>
+
+    <div class="input-group input-group-icon">
+      <textarea name="synopsis" class="form-control" formControlName="synopsis" id="synopsis" cols="30" rows="10" placeholder="Synopsis"></textarea>
+    </div>
+  </div>
+
+  <!-- Date de sortie -->
+  <div class="row">
+    <h4>Date de sortie</h4>
+    <div class="input-group input-group-icon">
+      <p-calendar
+        formControlName="releaseDate"
+        dateFormat="dd/mm/yy"
+        [monthNavigator]="true"
+        [yearNavigator]="true"
+        yearRange="2000:2030" placeholder="Date de sortie">
+      </p-calendar>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-half">
+      <h4>A voir/Vu</h4>
+      <div class="input-group">
+        <input id="seen" type="radio" name="seen" value="Visionne" formControlName="seen" required/>
+        <label for="seen">Visionné</label>
+        <input id="must-see" type="radio" name="seen" value="Avoir" formControlName="seen" required/>
+        <label for="must-see">A voir</label>
+        <small *ngIf="seen && seen.errors && seen.dirty" class="form-text text-muted">
+        <span [hidden]="!seen.errors.required">
+          Veuillez sélectionner le type du programme.
+        </span>
+      </small>
+      </div>
+
+    </div>
+
+    <div class="col-half">
+      <h4>Date de visionnage</h4>
+      <div class="input-group input-group-icon">
+        <p-calendar
+          formControlName="viewingDate"
+          dateFormat="dd/mm/yy"
+          [monthNavigator]="true"
+          [yearNavigator]="true"
+          yearRange="2000:2030" placeholder="Date de visionnage">
+        </p-calendar>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bouton de sauvegarde -->
+  <button type="submit" class="au-btn saveProgram" [disabled]="addProgramForm.invalid" [ngClass]="{'btn-success':addProgramForm.valid,'btn-default':!addProgramForm.valid}">
+    <span class="material-icons">post_add</span>
+        Sauvegarder
+  </button>
+</form>
+</div>
+
+
+

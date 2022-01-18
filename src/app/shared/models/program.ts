@@ -1,6 +1,6 @@
 export class Program {
   readonly id: string | null;
-  name: string;
+  title: string;
   type: string;
   genres: string[];
   numberOfSeasons: number;
@@ -9,10 +9,12 @@ export class Program {
   releaseDate: string;
   platform: string;
   rate: number;
+  viewingDate: string;
+  seen: boolean;
 
   constructor(
     id?: string,
-    name?: string,
+    title?: string,
     type?: string,
     genres?: string[],
     numberOfSeasons?: number,
@@ -21,9 +23,11 @@ export class Program {
     releaseDate?: string,
     platform?: string,
     rate?: number,
+    viewingDate?: string,
+    seen?: boolean
   ) {
     this.id = id || null;
-    this.name = name || '';
+    this.title = title || '';
     this.type = type || '';
     this.genres = genres || [];
     this.numberOfSeasons = numberOfSeasons || 0;
@@ -32,5 +36,7 @@ export class Program {
     this.releaseDate = releaseDate || '';
     this.platform = platform || '';
     this.rate = rate || 0;
+    this.viewingDate = viewingDate || '';
+    this.seen = seen || false;
   }
 }
